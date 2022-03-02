@@ -1,0 +1,129 @@
+html {
+  overflow: hidden;
+  max-width: 800px;
+  margin: auto;
+}
+
+body {
+  background-color: #111318;
+  color: #DDDDDD;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: medium;
+}
+
+a:link {
+  color: #F47D7B;
+}
+
+a:visited {
+  color: #F47D7B;
+}
+
+a:hover {
+  color: #86A3C1;
+}
+
+a:active {
+  color: #86A3C1;
+}
+
+/*img {
+  border: 2px solid #F47D7B;
+  background-color: #111318;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align:text-bottom
+}*/
+
+ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 2em;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+a:focus {
+  outline: 2px solid #86A3C1;
+  outline-offset: 2px;
+}
+
+button {
+  background-color: #111318;
+  text-align: left;
+  border: none;
+  padding: 0;
+  color: #DDDDDD;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: medium;
+  margin: 5px 0;
+}
+
+button.done {
+  text-decoration: line-through;
+  color: #86A3C1;
+}
+
+button.new-todo {
+  color: #86A3C1;
+  font-style: italic;
+}
+
+button:hover {
+  color: #F47D7B;
+}
+
+button:active {
+  color: #F47D7B;
+}
+
+*:focus {
+  outline: none;
+}
+
+button.edit {
+  font-style: italic;
+  color: #86A3C1;
+}
+
+button.edit:hover {
+  color: #F47D7B;
+}
+
+button.save {
+  font-style: italic;
+  color: #86A3C1;
+}
+
+button.save:hover {
+  color: #F47D7B;
+}
+
+input.edit-box {
+  display: none;
+  background-color: #111318;
+  border: none;
+  padding: 0;
+  color: #DDDDDD;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: medium;
+  width: 400px;
+  margin: 0;
+}
+
+.item {
+  width: 400px;
+}
+
+button.remove {
+  display: none;
+  font-style: italic;
+  color: #86A3C1;
+  margin-left: 1em;
+}
+
+button.remove:hover {
+  color: #F47D7B;
+}
