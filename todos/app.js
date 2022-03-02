@@ -1,8 +1,10 @@
 //prevent js from trying to run on elements that dont exist
 document.addEventListener("DOMContentLoaded", function(){
     const todo = document.querySelector(".todo-list");
+    //get stored list, if available
     const list = localStorage.getItem("list");
     if (list === null) {
+        //if not available, set it to a default
         todo.innerHTML = `
         <li>
             <form>
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
         </li>
         `;
     } else {
+        //if available, show it
         todo.innerHTML = list;
     }
     //check for clicks and handle them
