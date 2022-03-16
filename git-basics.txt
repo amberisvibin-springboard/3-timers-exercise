@@ -14,4 +14,3 @@ git commit -m "removing third.txt"
 git log
 git config --global --replace-all core.pager cat
 git config --global -l
-fsdfsdgs
