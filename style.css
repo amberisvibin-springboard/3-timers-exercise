@@ -1,0 +1,32 @@
+html {
+    max-width: 800px;
+    margin: auto;
+}
+
+body {
+    background-color: #111318;
+    color: #DDDDDD;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: medium;
+}
+
+a:link {
+    color: #F47D7B;
+}
+
+a:visited {
+    color: #F47D7B;
+}
+
+a:hover {
+    color: #86A3C1;
+}
+
+a:active {
+    color: #86A3C1;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
