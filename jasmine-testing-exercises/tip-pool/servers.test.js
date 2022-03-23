@@ -11,7 +11,20 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
 
+  it('should add an element to the server list on updateServerTable()', function () {
+    let serverName = serverNameInput.value;
+    serverId++;
+    allServers['server' + serverId] = { serverName };
+
+    updateServerTable();
+
+    expect(document.getElementById("server1").innerHTML).toEqual('<td>Alice</td><td>$0.00</td>');
+  });
+
   afterEach(function() {
     // teardown logic
+    serverId = 0;
+    allServers = {};
+    updateServerTable();
   });
 });
