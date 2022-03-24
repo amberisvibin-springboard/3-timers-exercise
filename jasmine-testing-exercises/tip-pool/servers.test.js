@@ -25,6 +25,9 @@ describe("Servers test (with setup and tear-down)", function() {
     // teardown logic
     serverId = 0;
     allServers = {};
+    serverNameInput.value = '';
     updateServerTable();
+    billAmtInput.value = '';
+    tipAmtInput.value = '';
   });
 });
