@@ -33,6 +33,8 @@ describe("Helpers test", function() {
         expect(tipsPercents).toEqual(25);
     })
 
+    //TODO: implement tests for appendDeleteBtn() and DeleteTr()
+
     afterEach(function() {
         allPayments = {};
         paymentId = 0;

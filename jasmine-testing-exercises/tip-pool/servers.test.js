@@ -18,7 +18,7 @@ describe("Servers test (with setup and tear-down)", function() {
 
     updateServerTable();
 
-    expect(document.getElementById("server1").innerHTML).toEqual('<td>Alice</td><td>$0.00</td>');
+    expect(document.getElementById("server1").innerHTML).toEqual('<td>Alice</td><td>$0.00</td><td>X</td>');
   });
 
   afterEach(function() {
