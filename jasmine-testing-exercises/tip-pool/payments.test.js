@@ -55,7 +55,7 @@ describe("Payments test", function() {
         let curPayment = createCurPayment();
         appendPaymentTable(curPayment);
 
-        expect(document.getElementById("payment0").innerHTML).toBe("<td>$10</td><td>$2.5</td><td>25%</td>");
+        expect(document.getElementById("payment0").innerHTML).toBe("<td>$10</td><td>$2.5</td><td>25%</td><td>X</td>");
     });
 
     it('should append valid data to SummaryTds on updateSummary() with non-0 inputs', function () {
@@ -82,7 +82,7 @@ describe("Payments test", function() {
         expect(summaryTds[2].innerHTML).toBe("0%");
     });
 
-    it('should ', function () {
+    it('should append valid data to shift summary on submitPaymentInfo()', function () {
         billAmtInput.value = 10;
         tipAmtInput.value = 2.5;
         submitPaymentInfo();
@@ -90,7 +90,7 @@ describe("Payments test", function() {
         expect(summaryTds[0].innerHTML).toBe("$10");
         expect(summaryTds[1].innerHTML).toBe("$2.5");
         expect(summaryTds[2].innerHTML).toBe("25%");
-        expect(document.getElementById("payment1").innerHTML).toBe("<td>$10</td><td>$2.5</td><td>25%</td>");
+        expect(document.getElementById("payment1").innerHTML).toBe("<td>$10</td><td>$2.5</td><td>25%</td><td>X</td>");
     });
 
     afterEach(function() {

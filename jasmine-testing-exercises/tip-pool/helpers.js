@@ -28,13 +28,20 @@ function appendTd(tr, value) {
 function appendDeleteBtn(tr) {
   let newTd = document.createElement('td');
   newTd.innerText = "X";
-  newTd.addEventListener('click', deleteTr);
 
   tr.append(newTd);
+  return newTd;
 }
 
-function deleteTr(evt) {
+function deleteServer(evt) {
   delete allServers[evt.target.parentElement.id];
   updateServerTable();
+  //evt.target.parentElement.remove();
+}
+
+function deletePayment(evt) {
+  delete allPayments[evt.target.parentElement.id];
+  evt.target.parentElement.remove();
+  updateSummary();
   //evt.target.parentElement.remove();
 }

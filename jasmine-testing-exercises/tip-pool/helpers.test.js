@@ -11,7 +11,7 @@ describe("Helpers test", function() {
         let tipPercent = calculateTipPercent(10, 2.5);
         
         expect(tipPercent).toEqual(25);
-    })
+    });
     
     it('should return correct totals on sumPaymentTotal()', function() {
         billAmtInput.value = '10';
@@ -31,9 +31,14 @@ describe("Helpers test", function() {
         expect(tips).toEqual(2.5);
         expect(bills).toEqual(10);
         expect(tipsPercents).toEqual(25);
-    })
+    });
 
-    //TODO: implement tests for appendDeleteBtn() and DeleteTr()
+    it('should append delete button on appendDeleteBtn()', function() {
+        let newTr = document.createElement('tr');
+        appendDeleteBtn(newTr);
+        
+        expect(newTr.innerHTML).toEqual('<td>X</td>');
+    });
 
     afterEach(function() {
         allPayments = {};

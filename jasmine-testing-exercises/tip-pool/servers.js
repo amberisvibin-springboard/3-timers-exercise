@@ -38,7 +38,8 @@ function updateServerTable() {
 
     appendTd(newTr, curServer.serverName);
     appendTd(newTr, '$' + tipAverage.toFixed(2));
-    appendDeleteBtn(newTr);
+    let del = appendDeleteBtn(newTr);
+    del.addEventListener('click', deleteServer);
 
     serverTbody.append(newTr);
   }
