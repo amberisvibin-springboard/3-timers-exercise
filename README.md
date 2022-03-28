@@ -4,4 +4,4 @@ where i keep my springboard exercises.
 
 ## projects
 
-- [Memory Game](/memory-game)
+- [Memory Game](/memory-game/index.html)
