@@ -108,10 +108,10 @@ function partition(arr, callback) {
     arr.reduce(function(previousValue, currentValue, currentIndex, array) {
         let result = callback(currentValue);
         if(result) {
-            trueArr[currentIndex] = currentValue;
+            trueArr.push(currentValue);
         } else {
-            falseArr[currentIndex] = currentValue;
+            falseArr.push(currentValue);
         }
     }, 0);
-    return [trueArr.flat(), falseArr.flat()];
+    return [trueArr, falseArr];
 }
