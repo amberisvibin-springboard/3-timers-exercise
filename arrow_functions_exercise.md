@@ -32,6 +32,8 @@ Replace ALL functions with arrow functions:
 	  return evens;
 	}
 	
+Solution:
+	
 	const squareAndFindEvens = numbers => numbers.map(num => num ** 2).filter(square => square % 2 === 0);
 
 ## Solution
