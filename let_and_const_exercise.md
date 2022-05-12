@@ -4,14 +4,18 @@ In this exercise, you’ll refactor some ES5 code into ES2015.
 
 ## ES5 Global Constants
 
-    var PI = 3.14;
-    PI = 42; // stop me from doing this!
+```js
+var PI = 3.14;
+PI = 42; // stop me from doing this!
+```
 
 ## ES2015 Global Constants
 
-    /* Write an ES2015 Version */
-	const PI = 3.14;
-	PI = 42; //error
+```js
+/* Write an ES2015 Version */
+const PI = 3.14;
+PI = 42; //error
+```
 
 Quiz
 

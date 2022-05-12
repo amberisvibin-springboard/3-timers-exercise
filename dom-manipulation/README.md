@@ -2,7 +2,7 @@
 
 Given the following HTML:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
