@@ -7,3 +7,4 @@ where i keep my springboard exercises.
 - [Memory Game](/memory-game/index.html)
 - [Meme Generator](/meme-generator/index.html)
 - [Todos](/todos/index.html)
+- [Connect 4](/connect-four/index.html)
