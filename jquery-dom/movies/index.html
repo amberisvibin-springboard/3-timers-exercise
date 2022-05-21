@@ -1,0 +1,36 @@
+<!doctype html>
+<head>
+  <title>Movie Rater</title>
+  <link href="movies.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Movie Rater</h1>
+
+  <form>
+    <label for="title">Movie Title:</label>
+    <input type="text" id="title">
+    <label for="rating">Rating:</label>
+    <input
+      class="rating"
+      max="5"
+      oninput="this.style.setProperty('--value', this.value)"
+      step="0.5"
+      type="range"
+      value="0"
+      style="--value: 0">
+    <button type="submit" id="submit">Submit</button>
+  </form>
+
+  <h3 id="info"></h3>
+
+  <section id="movies">
+    
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="movies.js"></script>
+
+</body>
+</html>
