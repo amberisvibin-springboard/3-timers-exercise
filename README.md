@@ -8,3 +8,5 @@ where i keep my springboard exercises.
 - [Meme Generator](/meme-generator/index.html)
 - [Todos](/todos/index.html)
 - [Connect 4](/connect-four/index.html)
+- [Connect 4 OO](/connect-four-oo/index.html)
+- [Giphy Party](/ajax-giphy-party/index.html)
