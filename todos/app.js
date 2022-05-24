@@ -72,9 +72,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function editItem(event) {
-    //path[1] goes up to the element's parent. I couldn't get parentElement to work
-    //I don't know why
-    const parent = event.path[1];
+    const parent = event.target.parentElement;
     const item = parent.querySelector(".item");
     //hide element
     item.style.display = 'none';
@@ -94,7 +92,7 @@ function editItem(event) {
 }
 
 function saveItem(event) {
-    const parent = event.path[1];
+    const parent = event.target.parentElement;
     const editBox = parent.querySelector(".edit-box");
     editBox.style.display = 'none';
     const item = parent.querySelector(".item");
