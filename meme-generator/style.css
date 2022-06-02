@@ -5,63 +5,63 @@ html {
 
 body {
   background-color: #111318;
-  color: #DDDDDD;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #dddddd;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
   margin: 0;
 }
 
 a:link {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 a:visited {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 a:hover {
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 a:active {
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 input {
   background-color: #111318;
-  border: 1px solid  #F47D7B;
+  border: 1px solid #f47d7b;
   padding: 2px;
-  color: #DDDDDD;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #dddddd;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
   width: 400px;
   margin: 2px 0;
   display: block;
 }
 
-input:focus{
+input:focus {
   outline: none;
-  border: 1px solid  #86A3C1;
+  border: 1px solid #86a3c1;
 }
 
 button {
-  background-color: #F47D7B;
+  background-color: #f47d7b;
   text-align: left;
-  border: 1px solid  #F47D7B;
+  border: 1px solid #f47d7b;
   padding: 2px;
   color: #111318;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
   margin: 5px 0;
 }
 
 button:hover {
-  color: #F47D7B;
+  color: #f47d7b;
   background-color: #111318;
 }
 
 button:active {
-  color: #F47D7B;
+  color: #f47d7b;
   background-color: #111318;
 }
 
@@ -70,7 +70,7 @@ img {
 }
 
 footer {
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 #meme {
@@ -80,7 +80,7 @@ footer {
   /* width: 600px; */
 }
 
-.meme-text{
+.meme-text {
   position: absolute;
   font-family: impact;
   font-size: 3em;

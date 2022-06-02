@@ -1,33 +1,35 @@
-describe("Servers test (with setup and tear-down)", function() {
+describe("Servers test (with setup and tear-down)", function () {
   beforeEach(function () {
     // initialization logic
-    serverNameInput.value = 'Alice';
+    serverNameInput.value = "Alice";
   });
 
-  it('should add a new server to allServers on submitServerInfo()', function () {
+  it("should add a new server to allServers on submitServerInfo()", function () {
     submitServerInfo();
 
     expect(Object.keys(allServers).length).toEqual(1);
-    expect(allServers['server' + serverId].serverName).toEqual('Alice');
+    expect(allServers["server" + serverId].serverName).toEqual("Alice");
   });
 
-  it('should add an element to the server list on updateServerTable()', function () {
+  it("should add an element to the server list on updateServerTable()", function () {
     let serverName = serverNameInput.value;
     serverId++;
-    allServers['server' + serverId] = { serverName };
+    allServers["server" + serverId] = { serverName };
 
     updateServerTable();
 
-    expect(document.getElementById("server1").innerHTML).toEqual('<td>Alice</td><td>$0.00</td><td>X</td>');
+    expect(document.getElementById("server1").innerHTML).toEqual(
+      "<td>Alice</td><td>$0.00</td><td>X</td>"
+    );
   });
 
-  afterEach(function() {
+  afterEach(function () {
     // teardown logic
     serverId = 0;
     allServers = {};
-    serverNameInput.value = '';
+    serverNameInput.value = "";
     updateServerTable();
-    billAmtInput.value = '';
-    tipAmtInput.value = '';
+    billAmtInput.value = "";
+    tipAmtInput.value = "";
   });
 });

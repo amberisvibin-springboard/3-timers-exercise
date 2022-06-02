@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Meme Generator</title>
     <script src="app.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
     <h1>Meme Generator</h1>
 
     <div id="meme">
-        <!-- if image fails to load, set it to the placeholder -->
-        <img src="placeholder.svg" id="meme-image" onerror="this.src='placeholder.svg';"> 
-        <div class="meme-text" id="top-text">TOP TEXT</div>
-        <div class="meme-text" id="bottom-text">BOTTOM TEXT</div>
+      <!-- if image fails to load, set it to the placeholder -->
+      <img
+        src="placeholder.svg"
+        id="meme-image"
+        onerror="this.src='placeholder.svg';"
+      />
+      <div class="meme-text" id="top-text">TOP TEXT</div>
+      <div class="meme-text" id="bottom-text">BOTTOM TEXT</div>
     </div>
 
     <form>
-        <label for="url-input">Image URL: </label><input type="text" id="url-input">
-        <label for="top-text-input">Top text: </label><input type="text" id="top-text-input">
-        <label for="bottom-text-input">Bottom text: </label><input type="text" id="bottom-text-input">
-        <button type="submit" id="submit">Submit</button>
+      <label for="url-input">Image URL: </label
+      ><input type="text" id="url-input" />
+      <label for="top-text-input">Top text: </label
+      ><input type="text" id="top-text-input" />
+      <label for="bottom-text-input">Bottom text: </label
+      ><input type="text" id="bottom-text-input" />
+      <button type="submit" id="submit">Submit</button>
     </form>
 
     <footer>
-        <p>Notice: The meme text will not have the black border if viewed with older browsers or any version of Internet Explorer.</p>
-        <p>Placeholder image attribution: <a href="https://commons.wikimedia.org/wiki/File:Placeholder_view_vector.svg">Flanoz</a>, CC0, via Wikimedia Commons</p>
+      <p>
+        Notice: The meme text will not have the black border if viewed with
+        older browsers or any version of Internet Explorer.
+      </p>
+      <p>
+        Placeholder image attribution:
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Placeholder_view_vector.svg"
+          >Flanoz</a
+        >, CC0, via Wikimedia Commons
+      </p>
     </footer>
-    
-</body>
+  </body>
 </html>

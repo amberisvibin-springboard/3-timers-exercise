@@ -14,47 +14,47 @@ html {
 
 body {
   background-color: #000000;
-  color: #FFFFFF;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #ffffff;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
 }
 
 div.hidden {
-  background-color: #76818E !important;
+  background-color: #76818e !important;
 }
 
 div.red {
-  background-color: #AC3931;
+  background-color: #ac3931;
 }
 
 div.blue {
-  background-color: #6290C3;
+  background-color: #6290c3;
 }
 
 div.green {
-  background-color: #69995D;
+  background-color: #69995d;
 }
 
 div.orange {
-  background-color: #FC9E4F;
+  background-color: #fc9e4f;
 }
 
 div.purple {
-  background-color: #935FA7;
+  background-color: #935fa7;
 }
 
 a:link {
-  color: #FF70A6;
+  color: #ff70a6;
 }
 
 a:visited {
-  color: #FF70A6;
+  color: #ff70a6;
 }
 
 a:hover {
-  color: #76818E;
+  color: #76818e;
 }
 
 a:active {
-  color: #76818E;
+  color: #76818e;
 }

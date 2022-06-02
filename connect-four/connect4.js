@@ -18,8 +18,8 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
 const makeBoard = () => {
   // set "board" to empty HEIGHT x WIDTH matrix array
   //board = Array(HEIGHT).fill(Array(WIDTH).fill(0, 0), 0);
-  board = Array.from(Array(HEIGHT), () => new Array(WIDTH).fill(null, 0))
-}
+  board = Array.from(Array(HEIGHT), () => new Array(WIDTH).fill(null, 0));
+};
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
@@ -49,7 +49,7 @@ const makeHtmlBoard = () => {
     htmlBoard.append(row);
   }
   document.getElementById("alert").innerText = `Player ${currPlayer} turn.`;
-}
+};
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
@@ -61,12 +61,11 @@ const findSpotForCol = (x) => {
     let currSpot = document.getElementById(`${y}-${x}`);
     //console.log(currSpot);
     if (currSpot.firstElementChild != null) {
-      
       return y - 1;
     }
   }
   return HEIGHT - 1;
-}
+};
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
@@ -76,14 +75,16 @@ const placeInTable = (y, x) => {
   piece.classList.add(`p${currPlayer}`);
   document.getElementById(`${y}-${x}`).append(piece);
   //console.log(`${y}-${x}`);
-}
+};
 
 /** endGame: announce game end */
 
 const endGame = (msg) => {
   document.getElementById("alert").innerText = msg;
-  document.getElementById("column-top").removeEventListener("click", handleClick);
-}
+  document
+    .getElementById("column-top")
+    .removeEventListener("click", handleClick);
+};
 
 /** handleClick: handle click of column top to play piece */
 
@@ -106,17 +107,17 @@ const handleClick = (evt) => {
   if (checkForWin()) {
     return endGame(`Player ${currPlayer} won!`);
   }
-  
+
   // check if all cells in board are filled; if so call, call endGame
   if (board.every((row) => row.every((column) => column))) {
-    endGame("Board is filled.")
+    endGame("Board is filled.");
   }
 
   // switch currPlayer 1 <-> 2
   currPlayer = currPlayer === 1 ? 2 : 1;
 
   document.getElementById("alert").innerText = `Player ${currPlayer} turn.`;
-}
+};
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
@@ -134,28 +135,47 @@ const checkForWin = () => {
         x < WIDTH &&
         board[y][x] === currPlayer
     );
-  }
+  };
 
   // for ever cell
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
       // check current cell and 3 to the right
-      let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      let horiz = [
+        [y, x],
+        [y, x + 1],
+        [y, x + 2],
+        [y, x + 3],
+      ];
       // check current cell and 3 down
-      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      let vert = [
+        [y, x],
+        [y + 1, x],
+        [y + 2, x],
+        [y + 3, x],
+      ];
       // check current cell and 3 diagonally down and right
-      let diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      let diagDR = [
+        [y, x],
+        [y + 1, x + 1],
+        [y + 2, x + 2],
+        [y + 3, x + 3],
+      ];
       // check current cell and 3 diagonally down and left
-      let diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-      
+      let diagDL = [
+        [y, x],
+        [y + 1, x - 1],
+        [y + 2, x - 2],
+        [y + 3, x - 3],
+      ];
+
       // if any win condition is true
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
       }
     }
   }
-}
+};
 
 makeBoard();
 makeHtmlBoard();
-

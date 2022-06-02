@@ -1,50 +1,49 @@
-describe("Helpers test", function() {
-    it('should append td to tr on appendTd()', function () {
-        let newTr = document.createElement('tr');
-        newTr.setAttribute('id', "test");
-        appendTd(newTr, "test");
-  
-        expect(newTr.innerHTML).toEqual('<td>test</td>');
-    });
+describe("Helpers test", function () {
+  it("should append td to tr on appendTd()", function () {
+    let newTr = document.createElement("tr");
+    newTr.setAttribute("id", "test");
+    appendTd(newTr, "test");
 
-    it('should return correct tip percent on calculateTipPercent()', function() {
-        let tipPercent = calculateTipPercent(10, 2.5);
-        
-        expect(tipPercent).toEqual(25);
-    });
-    
-    it('should return correct totals on sumPaymentTotal()', function() {
-        billAmtInput.value = '10';
-        tipAmtInput.value = '2.5';
-        let curPayment = createCurPayment();
+    expect(newTr.innerHTML).toEqual("<td>test</td>");
+  });
 
-        if (curPayment) {
-            paymentId += 1;
+  it("should return correct tip percent on calculateTipPercent()", function () {
+    let tipPercent = calculateTipPercent(10, 2.5);
 
-            allPayments['payment' + paymentId] = curPayment;
-        }
+    expect(tipPercent).toEqual(25);
+  });
 
-        let tips = sumPaymentTotal("tipAmt");
-        let bills = sumPaymentTotal("billAmt");
-        let tipsPercents = sumPaymentTotal("tipPercent");
+  it("should return correct totals on sumPaymentTotal()", function () {
+    billAmtInput.value = "10";
+    tipAmtInput.value = "2.5";
+    let curPayment = createCurPayment();
 
-        expect(tips).toEqual(2.5);
-        expect(bills).toEqual(10);
-        expect(tipsPercents).toEqual(25);
-    });
+    if (curPayment) {
+      paymentId += 1;
 
-    it('should append delete button on appendDeleteBtn()', function() {
-        let newTr = document.createElement('tr');
-        appendDeleteBtn(newTr);
-        
-        expect(newTr.innerHTML).toEqual('<td>X</td>');
-    });
+      allPayments["payment" + paymentId] = curPayment;
+    }
 
-    afterEach(function() {
-        allPayments = {};
-        paymentId = 0;
-        billAmtInput.value = '';
-        tipAmtInput.value = '';
-    });
-    
+    let tips = sumPaymentTotal("tipAmt");
+    let bills = sumPaymentTotal("billAmt");
+    let tipsPercents = sumPaymentTotal("tipPercent");
+
+    expect(tips).toEqual(2.5);
+    expect(bills).toEqual(10);
+    expect(tipsPercents).toEqual(25);
+  });
+
+  it("should append delete button on appendDeleteBtn()", function () {
+    let newTr = document.createElement("tr");
+    appendDeleteBtn(newTr);
+
+    expect(newTr.innerHTML).toEqual("<td>X</td>");
+  });
+
+  afterEach(function () {
+    allPayments = {};
+    paymentId = 0;
+    billAmtInput.value = "";
+    tipAmtInput.value = "";
+  });
 });

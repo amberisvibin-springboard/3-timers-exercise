@@ -5,18 +5,18 @@ html {
   max-width: fit-content;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
-  color: #DDDDDD;
+  color: #dddddd;
 }
 
 #board {
-  border: solid 2px #DDDDDD;
+  border: solid 2px #dddddd;
   padding: 4px;
 }
 
 #board td {
   width: 50px;
   height: 50px;
-  border: solid 2px #DDDDDD;
+  border: solid 2px #dddddd;
   border-radius: 50%;
 }
 
@@ -32,19 +32,19 @@ html {
 
 /* make pieces yellow/red, depending on player 1/2 piece */
 .p1 {
-  background-color: #D3B673;
+  background-color: #d3b673;
 }
 
 .p2 {
-  background-color: #B33951;
+  background-color: #b33951;
 }
 
 /* column-top is table row of clickable areas for each column */
 
 #column-top td {
-  border: dashed 2px #DDDDDD;
+  border: dashed 2px #dddddd;
 }
 
 #column-top td:hover {
-  background-color: #DDDDDD;
+  background-color: #dddddd;
 }

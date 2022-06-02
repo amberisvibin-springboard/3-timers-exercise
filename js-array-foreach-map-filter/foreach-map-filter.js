@@ -6,12 +6,12 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
-function doubleValues(arr){
-    let retArr = [];
-    arr.forEach(function(val){
-        retArr.push(val * 2);
-    });
-    return retArr;
+function doubleValues(arr) {
+  let retArr = [];
+  arr.forEach(function (val) {
+    retArr.push(val * 2);
+  });
+  return retArr;
 }
 
 /*
@@ -22,12 +22,12 @@ Examples:
     onlyEvenValues([5,1,2,3,10]) // [2,10]
 
 */
-function onlyEvenValues(arr){
-    return arr.filter(function(value) {
-        if (value % 2 === 0) {
-            return value;
-        }
-    });
+function onlyEvenValues(arr) {
+  return arr.filter(function (value) {
+    if (value % 2 === 0) {
+      return value;
+    }
+  });
 }
 
 /*
@@ -38,10 +38,10 @@ Examples:
     showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
 
 */
-function showFirstAndLast(arr){
-    return arr.map(function(value){
-        return value[0] + value[value.length - 1];
-    });
+function showFirstAndLast(arr) {
+  return arr.map(function (value) {
+    return value[0] + value[value.length - 1];
+  });
 }
 
 /*
@@ -53,11 +53,11 @@ Examples:
     [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr,key,value){
-    return arr.map(function(val){
-        val[key] = value;
-        return val;
-    });
+function addKeyAndValue(arr, key, value) {
+  return arr.map(function (val) {
+    val[key] = value;
+    return val;
+  });
 }
 
 /*
@@ -72,22 +72,22 @@ Examples:
     vowelCount('hmmm') // {};
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
-function vowelCount(str){
-    arr = Array.from(str);
-    out = {};
-    vowels = "";
-    //there has to be a way to combine these two iterators
-    vowels = arr.map(function(value){
-        return value.match("[aeiou]");
-    });
-    vowels.forEach(function(value){
-        if(!out[value] && value !== null){
-            out[value] = 1;
-        } else if(value !== null) {
-            out[value] = out[value] + 1;
-        };
-    });
-    return out;
+function vowelCount(str) {
+  arr = Array.from(str);
+  out = {};
+  vowels = "";
+  //there has to be a way to combine these two iterators
+  vowels = arr.map(function (value) {
+    return value.match("[aeiou]");
+  });
+  vowels.forEach(function (value) {
+    if (!out[value] && value !== null) {
+      out[value] = 1;
+    } else if (value !== null) {
+      out[value] = out[value] + 1;
+    }
+  });
+  return out;
 }
 
 /*
@@ -99,9 +99,9 @@ Examples:
 */
 
 function doubleValuesWithMap(arr) {
-    return arr.map(function(val){
-        return val * 2;
-    });
+  return arr.map(function (val) {
+    return val * 2;
+  });
 }
 
 /*
@@ -112,10 +112,10 @@ Examples:
     valTimesIndex([1,-2,-3]) // [0,-2,-6]
 */
 
-function valTimesIndex(arr){
-    return arr.map(function(val, index){
-        return val * index;
-    });
+function valTimesIndex(arr) {
+  return arr.map(function (val, index) {
+    return val * index;
+  });
 }
 
 /*
@@ -125,10 +125,10 @@ Examples:
     extractKey([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'name') // ['Elie', 'Tim', 'Matt', 'Colt']
 */
 
-function extractKey(arr, key){
-    return arr.map(function(value){
-        return value[key];
-    });
+function extractKey(arr, key) {
+  return arr.map(function (value) {
+    return value[key];
+  });
 }
 
 /*
@@ -138,10 +138,10 @@ Examples:
     extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}]) // ['Elie Schoppik', 'Tim Garcia', 'Matt Lane', 'Colt Steele']
 */
 
-function extractFullName(arr){
-    return arr.map(function(value){
-        return `${value.first} ${value.last}`;
-    });
+function extractFullName(arr) {
+  return arr.map(function (value) {
+    return `${value.first} ${value.last}`;
+  });
 }
 
 /*
@@ -152,9 +152,9 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-    return arr.filter(function(value){
-        return value[key];
-    });
+  return arr.filter(function (value) {
+    return value[key];
+  });
 }
 
 /*
@@ -166,14 +166,14 @@ Examples:
 */
 
 function find(arr, searchValue) {
-    let out = undefined;
-    arr.forEach(function(value){
-       //console.log(value);
-        if (searchValue === value && !out){
-            out = value;
-        }
-    });
-    return out;
+  let out = undefined;
+  arr.forEach(function (value) {
+    //console.log(value);
+    if (searchValue === value && !out) {
+      out = value;
+    }
+  });
+  return out;
 }
 
 /*
@@ -184,14 +184,14 @@ Examples:
 */
 
 function findInObj(arr, key, searchValue) {
-    let out = undefined;
-    arr.forEach(function(value){
-       //console.log(value);
-        if (searchValue === value[key] && !out){
-            out = value;
-        }
-    });
-    return out;
+  let out = undefined;
+  arr.forEach(function (value) {
+    //console.log(value);
+    if (searchValue === value[key] && !out) {
+      out = value;
+    }
+  });
+  return out;
 }
 
 /*
@@ -204,16 +204,16 @@ Examples:
 */
 
 function removeVowels(str) {
-    str = str.toString().toLowerCase();
-    arr = Array.from(str);
-    out = new String;
-    arr.forEach(function(value){
-        val = value.match("[^aeiou]")
-        if(val !== null) {
-            out += val;
-        }
-    });
-    return out;
+  str = str.toString().toLowerCase();
+  arr = Array.from(str);
+  out = new String();
+  arr.forEach(function (value) {
+    val = value.match("[^aeiou]");
+    if (val !== null) {
+      out += val;
+    }
+  });
+  return out;
 }
 
 /*
@@ -225,12 +225,12 @@ Examples:
 */
 
 function doubleOddNumbers(arr) {
-    let odds =  arr.filter(function(value) {
-        if (value % 2 !== 0) {
-            return value;
-        }
-    });
-    return odds.map(function(val){
-        return val * 2;
-    });
+  let odds = arr.filter(function (value) {
+    if (value % 2 !== 0) {
+      return value;
+    }
+  });
+  return odds.map(function (val) {
+    return val * 2;
+  });
 }

@@ -25,7 +25,7 @@ class Game {
     this.currPlayer = 1;
     this.board = [];
     this.gameOver = false;
-    document.getElementById('board').innerHTML = '';
+    document.getElementById("board").innerHTML = "";
     //this could be refactored to allow more players
     this.playerList[0].color = document.getElementById("p1-color").value;
     this.playerList[1].color = document.getElementById("p2-color").value;
@@ -43,34 +43,36 @@ class Game {
 
   /** makeHtmlBoard: make HTML table and row of column tops. */
   makeHtmlBoard() {
-    const board = document.getElementById('board');
-  
+    const board = document.getElementById("board");
+
     // make column tops (clickable area for adding a piece to that column)
-    const top = document.createElement('tr');
-    top.setAttribute('id', 'column-top');
-    top.addEventListener('click', this.handleClick.bind(this));
-  
+    const top = document.createElement("tr");
+    top.setAttribute("id", "column-top");
+    top.addEventListener("click", this.handleClick.bind(this));
+
     for (let x = 0; x < this.WIDTH; x++) {
-      const headCell = document.createElement('td');
-      headCell.setAttribute('id', x);
+      const headCell = document.createElement("td");
+      headCell.setAttribute("id", x);
       top.append(headCell);
     }
-  
+
     board.append(top);
-  
+
     // make main part of board
     for (let y = 0; y < this.HEIGHT; y++) {
-      const row = document.createElement('tr');
-  
+      const row = document.createElement("tr");
+
       for (let x = 0; x < this.WIDTH; x++) {
-        const cell = document.createElement('td');
-        cell.setAttribute('id', `${y}-${x}`);
+        const cell = document.createElement("td");
+        cell.setAttribute("id", `${y}-${x}`);
         row.append(cell);
       }
-  
+
       board.append(row);
     }
-    document.getElementById("alert").innerText = `Player ${this.currPlayer} turn.`;
+    document.getElementById(
+      "alert"
+    ).innerText = `Player ${this.currPlayer} turn.`;
   }
 
   /** handleClick: handle click of column top to play piece */
@@ -78,32 +80,33 @@ class Game {
     if (this.gameOver === false) {
       // get x from ID of clicked cell
       const x = +evt.target.id;
-    
+
       // get next spot in column (if none, ignore click)
       const y = this.findSpotForCol(x);
       if (y === null) {
         return;
       }
-    
+
       // place piece in board and add to HTML table
       this.board[y][x] = this.currPlayer;
       this.placeInTable(y, x);
-      
+
       // check for win
       if (this.checkForWin()) {
         return this.endGame(`Player ${this.currPlayer} won!`);
       }
-      
+
       // check for tie
-      if (this.board.every(row => row.every(cell => cell))) {
-        return this.endGame('Tie!');
+      if (this.board.every((row) => row.every((cell) => cell))) {
+        return this.endGame("Tie!");
       }
-        
+
       // switch players
       this.currPlayer = this.currPlayer === 1 ? 2 : 1;
-      document.getElementById("alert").innerText = `Player ${this.currPlayer} turn.`;
+      document.getElementById(
+        "alert"
+      ).innerText = `Player ${this.currPlayer} turn.`;
     }
-    
   }
 
   /** findSpotForCol: given column x, return top empty y (null if filled) */
@@ -118,13 +121,13 @@ class Game {
 
   /** placeInTable: update DOM to place piece into HTML table of board */
   placeInTable(y, x) {
-    const piece = document.createElement('div');
-    piece.classList.add('piece');
+    const piece = document.createElement("div");
+    piece.classList.add("piece");
     piece.classList.add(`p${this.currPlayer}`);
     //TODO: jank
     piece.style.backgroundColor = this.playerList[this.currPlayer - 1].color;
     piece.style.top = -50 * (y + 2);
-  
+
     const spot = document.getElementById(`${y}-${x}`);
     spot.append(piece);
   }
@@ -135,13 +138,38 @@ class Game {
       for (let x = 0; x < this.WIDTH; x++) {
         // get "check list" of 4 cells (starting here) for each of the different
         // ways to win
-        const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-        const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-        const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-        const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-  
+        const horiz = [
+          [y, x],
+          [y, x + 1],
+          [y, x + 2],
+          [y, x + 3],
+        ];
+        const vert = [
+          [y, x],
+          [y + 1, x],
+          [y + 2, x],
+          [y + 3, x],
+        ];
+        const diagDR = [
+          [y, x],
+          [y + 1, x + 1],
+          [y + 2, x + 2],
+          [y + 3, x + 3],
+        ];
+        const diagDL = [
+          [y, x],
+          [y + 1, x - 1],
+          [y + 2, x - 2],
+          [y + 3, x - 3],
+        ];
+
         // find winner (only checking each win-possibility as needed)
-        if (this._win(horiz) || this._win(vert) || this._win(diagDR) || this._win(diagDL)) {
+        if (
+          this._win(horiz) ||
+          this._win(vert) ||
+          this._win(diagDR) ||
+          this._win(diagDL)
+        ) {
           return true;
         }
       }
@@ -178,14 +206,14 @@ class Player {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
   let p1 = new Player(document.getElementById("p1-color").value);
   let p2 = new Player(document.getElementById("p2-color").value);
   let playerList = [p1, p2];
   let game = new Game(playerList, 6, 7);
   game.start();
 
-  document.addEventListener("submit", function(event) {
+  document.addEventListener("submit", function (event) {
     //prevent page reload upon clicking a button
     event.preventDefault();
     game.reset();

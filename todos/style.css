@@ -5,25 +5,25 @@ html {
 
 body {
   background-color: #111318;
-  color: #DDDDDD;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #dddddd;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
 }
 
 a:link {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 a:visited {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 a:hover {
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 a:active {
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 /*img {
@@ -35,9 +35,9 @@ a:active {
 }*/
 
 ul {
-    list-style: none;
-    padding: 0;
-    padding-left: 2em;
+  list-style: none;
+  padding: 0;
+  padding-left: 2em;
 }
 
 h1 {
@@ -45,7 +45,7 @@ h1 {
 }
 
 a:focus {
-  outline: 2px solid #86A3C1;
+  outline: 2px solid #86a3c1;
   outline-offset: 2px;
 }
 
@@ -54,28 +54,28 @@ button {
   text-align: left;
   border: none;
   padding: 0;
-  color: #DDDDDD;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #dddddd;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
   margin: 5px 0;
 }
 
 button.done {
   text-decoration: line-through;
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 button.new-todo {
-  color: #86A3C1;
+  color: #86a3c1;
   font-style: italic;
 }
 
 button:hover {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 button:active {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 *:focus {
@@ -84,20 +84,20 @@ button:active {
 
 button.edit {
   font-style: italic;
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 button.edit:hover {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 button.save {
   font-style: italic;
-  color: #86A3C1;
+  color: #86a3c1;
 }
 
 button.save:hover {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 input.edit-box {
@@ -105,8 +105,8 @@ input.edit-box {
   background-color: #111318;
   border: none;
   padding: 0;
-  color: #DDDDDD;
-  font-family: 'Open Sans', Arial, sans-serif;
+  color: #dddddd;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: medium;
   width: 400px;
   margin: 0;
@@ -119,10 +119,10 @@ input.edit-box {
 button.remove {
   display: none;
   font-style: italic;
-  color: #86A3C1;
+  color: #86a3c1;
   margin-left: 1em;
 }
 
 button.remove:hover {
-  color: #F47D7B;
+  color: #f47d7b;
 }

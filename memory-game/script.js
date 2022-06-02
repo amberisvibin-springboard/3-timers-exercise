@@ -10,15 +10,15 @@ const COLORS = [
   "blue",
   "green",
   "orange",
-  "purple"
+  "purple",
 ];
 
 let clickCount = 0;
 let acceptClicks = true;
 
 //card objects
-let cardOne = {color: null, id: null};
-let cardTwo = {color: null, id: null};
+let cardOne = { color: null, id: null };
+let cardTwo = { color: null, id: null };
 
 // here is a helper function to shuffle an array
 // it returns the same array with values shuffled
@@ -73,7 +73,7 @@ function createDivsForColors(colorArray) {
 }
 
 function handleCardClick(event) {
-  //if we are currently accepting clicks 
+  //if we are currently accepting clicks
   //(we don't when we are showing a guess)
   if (acceptClicks === true) {
     //get the color of the card,
@@ -91,34 +91,36 @@ function handleCardClick(event) {
       cardOne.id = cardID;
     } else if (clickCount === 2) {
       //if its the second card
-        if (cardOne.id === cardID) {
-          //if it's the same card, decrease click count
-          clickCount--;
+      if (cardOne.id === cardID) {
+        //if it's the same card, decrease click count
+        clickCount--;
+      } else {
+        //if its a different card, update the card object
+        cardTwo.color = cardColor;
+        cardTwo.id = cardID;
+        if (cardOne.color !== cardTwo.color) {
+          //if cards are not the same, add a timeout to show the
+          //cards for 1 second. also stop accepting clicks
+          //during that time.
+          //there is most likely a better way to check if accepting
+          //clicks by just removing the eventListener but w/e
+          clickCount = 0;
+          acceptClicks = false;
+          setTimeout(function () {
+            //ater 1 second, rehide cards and accept clicks again
+            event.target.classList.add("hidden");
+            document.getElementById(cardOne.id).classList.add("hidden");
+            acceptClicks = true;
+          }, 1000);
         } else {
-          //if its a different card, update the card object
-          cardTwo.color = cardColor;
-          cardTwo.id = cardID;
-          if (cardOne.color !== cardTwo.color) {
-            //if cards are not the same, add a timeout to show the
-            //cards for 1 second. also stop accepting clicks 
-            //during that time.
-            //there is most likely a better way to check if accepting
-            //clicks by just removing the eventListener but w/e
-            clickCount = 0;
-            acceptClicks = false;
-            setTimeout(function () {
-              //ater 1 second, rehide cards and accept clicks again
-              event.target.classList.add("hidden");
-              document.getElementById(cardOne.id).classList.add("hidden");
-              acceptClicks = true;
-            }, 1000);
-          } else {
-            //if the cards are the same, reset click counter
-            clickCount = 0;
-          }
+          //if the cards are the same, reset click counter
+          clickCount = 0;
         }
+      }
     }
-    console.log(`${cardOne.color} ${cardOne.id}, ${cardTwo.color} ${cardTwo.id}`);
+    console.log(
+      `${cardOne.color} ${cardOne.id}, ${cardTwo.color} ${cardTwo.id}`
+    );
   }
 }
 

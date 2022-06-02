@@ -13,9 +13,8 @@ findUserByUsername(users, 'mlewis') // {username: 'mlewis'}
 findUserByUsername(users, 'taco') // undefined
 */
 
-
 function findUserByUsername(usersArray, username) {
-  return usersArray.find(function(value) {
+  return usersArray.find(function (value) {
     console.log(`${value.username} should equal ${username}`);
     if (value.username == username) {
       return true;
@@ -38,7 +37,7 @@ removeUser(users, 'akagen') // undefined
 */
 
 function removeUser(usersArray, username) {
-  return usersArray.find(function(value, index, array) {
+  return usersArray.find(function (value, index, array) {
     if (value.username == username) {
       usersArray.splice(index, 1);
       return true;

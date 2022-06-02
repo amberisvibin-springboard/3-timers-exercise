@@ -7,9 +7,9 @@ Examples:
 */
 
 function hasOddNumber(arr) {
-    return arr.some(function(value){
-        return (value % 2 !== 0);
-    });
+  return arr.some(function (value) {
+    return value % 2 !== 0;
+  });
 }
 
 /*
@@ -21,10 +21,10 @@ Examples:
 */
 
 function hasAZero(num) {
-    arr = Array.from(num.toString());
-    return arr.some(function(value){
-        return (value == 0);
-    });
+  arr = Array.from(num.toString());
+  return arr.some(function (value) {
+    return value == 0;
+  });
 }
 
 /*
@@ -36,9 +36,9 @@ Examples:
 */
 
 function hasOnlyOddNumbers(arr) {
-    return arr.every(function(value){
-        return (value % 2 !== 0);
-    });
+  return arr.every(function (value) {
+    return value % 2 !== 0;
+  });
 }
 
 /*
@@ -50,19 +50,19 @@ Examples:
 */
 
 function hasNoDuplicates(arr) {
-    //the value is true if there are duplicates so return the opposite
-    return !arr.some(function(valToCheck, indexToCheck){
-        //for every element, loop through the array and check if a 
-        //value at a different index to the one we are checking against
-        //is the same as the one we are checking against.
-        return arr.some(function(val, index){
-            if (valToCheck == val && indexToCheck != index) {
-                return true;
-            } else {
-                return false;
-            }
-        });
+  //the value is true if there are duplicates so return the opposite
+  return !arr.some(function (valToCheck, indexToCheck) {
+    //for every element, loop through the array and check if a
+    //value at a different index to the one we are checking against
+    //is the same as the one we are checking against.
+    return arr.some(function (val, index) {
+      if (valToCheck == val && indexToCheck != index) {
+        return true;
+      } else {
+        return false;
+      }
     });
+  });
 }
 
 /*
@@ -81,13 +81,13 @@ Examples:
 */
 
 function hasCertainKey(arr, key) {
-    return arr.every(function(val){
-        if (typeof val[key] == 'undefined') {
-            return false;
-        } else {
-            return true;
-        }
-    });
+  return arr.every(function (val) {
+    if (typeof val[key] == "undefined") {
+      return false;
+    } else {
+      return true;
+    }
+  });
 }
 
 /*
@@ -107,11 +107,11 @@ Examples:
 */
 
 function hasCertainValue(arr, key, searchValue) {
-    return arr.every(function(val){
-        if (val[key] == searchValue) {
-            return true;
-        } else {
-            return false;
-        }
-    });
+  return arr.every(function (val) {
+    if (val[key] == searchValue) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 }

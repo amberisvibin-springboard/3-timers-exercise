@@ -25,25 +25,27 @@ function generateStoryMarkup(story) {
   const hostName = story.getHostName();
 
   //check if favorite
-  var isFavorite = currentUser.favorites.filter(function (o) {
-    return o.storyId == story.storyId;
-  }).length > 0;
+  var isFavorite =
+    currentUser.favorites.filter(function (o) {
+      return o.storyId == story.storyId;
+    }).length > 0;
 
   let favoriteStr = `
     <a class="story-favorite story-button"><small>favorite?</small></a>
     <a class="story-unfavorite story-button hidden"><small>unfavorite?</small></a>
-  `
+  `;
   if (isFavorite) {
     favoriteStr = `
       <a class="story-favorite story-button hidden"><small>favorite?</small></a>
       <a class="story-unfavorite story-button"><small>unfavorite?</small></a>
-    `
+    `;
   }
 
   //check if own story
-  var isOwnStory = currentUser.ownStories.filter(function (o) {
-    return o.storyId == story.storyId;
-  }).length > 0;
+  var isOwnStory =
+    currentUser.ownStories.filter(function (o) {
+      return o.storyId == story.storyId;
+    }).length > 0;
 
   let removeStr = "";
   if (isOwnStory) {
@@ -93,14 +95,20 @@ async function newStory(evt) {
   const author = $("#story-author").val();
   const url = $("#story-url").val();
 
-  if (title === '' || author === '' || url === '') {
-    return
+  if (title === "" || author === "" || url === "") {
+    return;
   }
 
   console.log(title, author, url);
 
   $newStoryForm.trigger("reset");
-  currentUser.ownStories.push(await StoryList.addStory(currentUser, {title: title, author: author, url: url}));
+  currentUser.ownStories.push(
+    await StoryList.addStory(currentUser, {
+      title: title,
+      author: author,
+      url: url,
+    })
+  );
   storyList = await StoryList.getStories();
   hidePageComponents();
   putStoriesOnPage();
@@ -111,7 +119,10 @@ $newStoryForm.on("submit", newStory);
 async function handleFavorite(evt) {
   console.debug("handleFavorite", evt);
   evt.preventDefault();
-  User.favorite(currentUser, evt.currentTarget.parentElement.attributes.id.value);
+  User.favorite(
+    currentUser,
+    evt.currentTarget.parentElement.attributes.id.value
+  );
   evt.currentTarget.classList.toggle("hidden");
   evt.currentTarget.nextElementSibling.classList.toggle("hidden");
 }
@@ -119,7 +130,10 @@ async function handleFavorite(evt) {
 async function handleUnFavorite(evt) {
   console.debug("handleUnFavorite", evt);
   evt.preventDefault();
-  User.unFavorite(currentUser, evt.currentTarget.parentElement.attributes.id.value);
+  User.unFavorite(
+    currentUser,
+    evt.currentTarget.parentElement.attributes.id.value
+  );
   evt.currentTarget.classList.toggle("hidden");
   evt.currentTarget.previousElementSibling.classList.toggle("hidden");
 }
@@ -127,7 +141,10 @@ async function handleUnFavorite(evt) {
 async function handleRemoveStory(evt) {
   console.debug("handleRemoveStory", evt);
   evt.preventDefault();
-  await StoryList.removeStory(currentUser, evt.currentTarget.parentElement.attributes.id.value);
+  await StoryList.removeStory(
+    currentUser,
+    evt.currentTarget.parentElement.attributes.id.value
+  );
   storyList = await StoryList.getStories();
   hidePageComponents();
   putStoriesOnPage();

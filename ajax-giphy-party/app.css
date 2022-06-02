@@ -1,53 +1,53 @@
 html {
-    background-color: #111318;
-    max-width: 1200px;
-    margin: auto; 
-    font-family: Arial, Helvetica, sans-serif;
-    color: #DDDDDD;
-    text-align: center;
-  }
-  
-  button {
-    background-color: #111318;
-    border: 2px solid  #DDDDDD;
-    padding: 4px;
-    color: #DDDDDD;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
-    margin: 5px 0;
-  }
-  
-  button:hover {
-    color: #111318;
-    background-color: #DDDDDD;
-  }
-  
-  button:active {
-    color: #111318;
-    background-color: #DDDDDD;
-  }
-  
-  input[type=text] {
-    background-color: #111318;
-    border: 2px solid  #DDDDDD;
-    padding: 4px;
-    color: #DDDDDD;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
-    margin: 5px 0;
-  }
-  
-  input[type=text]:focus{
-    outline: none;
-    color: #111318;
-    background-color: #DDDDDD;
-  }
+  background-color: #111318;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #dddddd;
+  text-align: center;
+}
 
- section {
-     min-height: 600px;
- }
+button {
+  background-color: #111318;
+  border: 2px solid #dddddd;
+  padding: 4px;
+  color: #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin: 5px 0;
+}
 
- img {
-     display: inline-block;
-     margin: 8px;
- }
+button:hover {
+  color: #111318;
+  background-color: #dddddd;
+}
+
+button:active {
+  color: #111318;
+  background-color: #dddddd;
+}
+
+input[type="text"] {
+  background-color: #111318;
+  border: 2px solid #dddddd;
+  padding: 4px;
+  color: #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin: 5px 0;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  color: #111318;
+  background-color: #dddddd;
+}
+
+section {
+  min-height: 600px;
+}
+
+img {
+  display: inline-block;
+  margin: 8px;
+}

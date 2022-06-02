@@ -8,13 +8,13 @@ Examples:
 */
 
 function extractValue(arr, key) {
-    //returns values as a string deliniated by spaces, with an extra space at the end
-    let retStr = arr.reduce(function(previousValue, currentValue) {
-        //console.table({previousValue, currentValue, currentIndex});
-        return previousValue += currentValue[key] + ' ';
-    }, "");
-    //split the string into an array and remove the last empy element due to the extra space at the end
-    return retStr.split(' ').splice(0, arr.length);
+  //returns values as a string deliniated by spaces, with an extra space at the end
+  let retStr = arr.reduce(function (previousValue, currentValue) {
+    //console.table({previousValue, currentValue, currentIndex});
+    return (previousValue += currentValue[key] + " ");
+  }, "");
+  //split the string into an array and remove the last empy element due to the extra space at the end
+  return retStr.split(" ").splice(0, arr.length);
 }
 
 /*
@@ -31,27 +31,27 @@ Examples:
 */
 
 function vowelCount(str) {
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
-    //turn the string into an iterable array and make it lowercase
-    arr = Array.from(str.toLowerCase());
-    let out = {};
-    //for every vowel
-    vowels.forEach(function(currentVowel) {
-        //for ever letter
-        let count = arr.reduce(function(previousValue, currentValue) {
-            //if the letter is the vowel we are looking for, increment
-            if(currentValue == currentVowel) {
-                return previousValue += 1;
-            } else {
-                return previousValue;
-            }
-        }, 0);
-        //add keys for non-zero vowel counts
-        if(count !== 0) {
-            out[currentVowel] = count;
-        }
-    });
-    return out;
+  let vowels = ["a", "e", "i", "o", "u"];
+  //turn the string into an iterable array and make it lowercase
+  arr = Array.from(str.toLowerCase());
+  let out = {};
+  //for every vowel
+  vowels.forEach(function (currentVowel) {
+    //for ever letter
+    let count = arr.reduce(function (previousValue, currentValue) {
+      //if the letter is the vowel we are looking for, increment
+      if (currentValue == currentVowel) {
+        return (previousValue += 1);
+      } else {
+        return previousValue;
+      }
+    }, 0);
+    //add keys for non-zero vowel counts
+    if (count !== 0) {
+      out[currentVowel] = count;
+    }
+  });
+  return out;
 }
 
 /*
@@ -71,10 +71,16 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-    return arr.reduce(function(previousValue, currentValue, currentIndex, array) {
-        previousValue[currentIndex][key] = value;
-        return previousValue;
-    }, arr);
+  return arr.reduce(function (
+    previousValue,
+    currentValue,
+    currentIndex,
+    array
+  ) {
+    previousValue[currentIndex][key] = value;
+    return previousValue;
+  },
+  arr);
 }
 
 /*
@@ -103,15 +109,15 @@ Examples:
 */
 
 function partition(arr, callback) {
-    let trueArr = [];
-    let falseArr = [];
-    arr.reduce(function(previousValue, currentValue, currentIndex, array) {
-        let result = callback(currentValue);
-        if(result) {
-            trueArr.push(currentValue);
-        } else {
-            falseArr.push(currentValue);
-        }
-    }, 0);
-    return [trueArr, falseArr];
+  let trueArr = [];
+  let falseArr = [];
+  arr.reduce(function (previousValue, currentValue, currentIndex, array) {
+    let result = callback(currentValue);
+    if (result) {
+      trueArr.push(currentValue);
+    } else {
+      falseArr.push(currentValue);
+    }
+  }, 0);
+  return [trueArr, falseArr];
 }

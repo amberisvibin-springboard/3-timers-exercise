@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Giphy Party!</title>
+    <link href="app.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Giphy Party!</title>
-  <link href="app.css" rel="stylesheet">
-  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+  <body>
+    <h1>Giphy Party!</h1>
 
-<body>
-  <h1>Giphy Party!</h1>
+    <form>
+      <label for="query">Add GIF:</label>
+      <input type="text" id="query" />
+      <button type="submit" id="submit">Search</button>
+      <button type="button" id="remove">Remove All GIFs</button>
+    </form>
 
-  <form>
-    <label for="query">Add GIF:</label>
-    <input type="text" id="query">
-    <button type="submit" id="submit">Search</button>
-    <button type="button" id="remove">Remove All GIFs</button>
-  </form>
+    <section id="gifs"></section>
 
-  <section id="gifs"></section>
+    <footer>
+      <img src="giphy-logo.png" />
+    </footer>
 
-  <footer>
-    <img src="giphy-logo.png">
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.js"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

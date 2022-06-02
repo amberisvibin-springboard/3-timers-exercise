@@ -5,7 +5,7 @@
 }
 
 .stories-list > li {
-  color: #86A3C1;
+  color: #86a3c1;
   font-size: 0.8rem;
   margin: 10px 0;
 }
@@ -14,14 +14,13 @@
   font-weight: bold;
   font-size: 150%;
   margin: 20px 30px;
-  color: #DDDDDD;
+  color: #dddddd;
 }
-
 
 /* Individual stories */
 
 .story-link {
-  color: #DDDDDD;
+  color: #dddddd;
   font-size: 0.85rem;
   font-weight: normal;
   margin: 18px 0;
@@ -42,7 +41,7 @@
 }
 
 .story-button:hover {
-  color: #F47D7B;
+  color: #f47d7b;
 }
 
 .story-user {

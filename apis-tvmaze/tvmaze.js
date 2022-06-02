@@ -2,7 +2,6 @@
  *     { id, name, summary, episodesUrl }
  */
 
-
 /** Search Shows
  *    - given a search term, search for tv shows that
  *      match that query.  The function is async show it
@@ -18,7 +17,9 @@
       }
  */
 async function searchShows(query) {
-  let response = await axios.get("https://api.tvmaze.com/singlesearch/shows", {params: {q: query}});
+  let response = await axios.get("https://api.tvmaze.com/singlesearch/shows", {
+    params: { q: query },
+  });
   console.log(response);
 
   let image = response.data.image.original;
@@ -26,29 +27,29 @@ async function searchShows(query) {
   if (image == null || image == undefined) {
     image = "https://tinyurl.com/tv-missing";
   }
-  
+
   return [
     {
       id: response.data.id,
       name: response.data.name,
       summary: response.data.summary,
-      image: image
-    }
-  ]
+      image: image,
+    },
+  ];
 }
 
 /** Given a show ID, return list of episodes:
  *      { id, name, season, number }
  */
 
- async function getEpisodes(id) {
+async function getEpisodes(id) {
   // TODO: get episodes from tvmaze
   //       you can get this by making GET request to
   //       http://api.tvmaze.com/shows/SHOW-ID-HERE/episodes
   let response = await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`);
   console.log(response);
 
-  let out = new Array;
+  let out = new Array();
 
   // TODO: return array-of-episode-info, as described in docstring above
   for (let episode of response.data) {
@@ -57,9 +58,9 @@ async function searchShows(query) {
       id: episode.id,
       name: episode.name,
       season: episode.season,
-      number: episode.number
-    })
-  };
+      number: episode.number,
+    });
+  }
 
   return out;
 }
@@ -84,16 +85,17 @@ function populateShows(shows) {
            </div>
          </div>
        </div>
-      `);
+      `
+    );
 
     $showsList.append($item);
   }
 
   /** Handle episode request:
-  *    - get episodes and display in episodes list
-  */
+   *    - get episodes and display in episodes list
+   */
 
-  $("#show-episodes").on("click", async function handleEpisodes (evt) {
+  $("#show-episodes").on("click", async function handleEpisodes(evt) {
     evt.preventDefault();
 
     let showID = $("#show-episodes").closest(".card").data("show-id");
@@ -111,7 +113,9 @@ function populateEpisodes(episodes) {
   $episodesList.empty();
 
   for (let episode of episodes) {
-    $episodesList.append($("<li>").text(`${episode.name} (S${episode.season}E${episode.number})`));
+    $episodesList.append(
+      $("<li>").text(`${episode.name} (S${episode.season}E${episode.number})`)
+    );
   }
 }
 
@@ -119,7 +123,7 @@ function populateEpisodes(episodes) {
  *    - get list of matching shows and show in shows list
  */
 
-$("#search-form").on("submit", async function handleSearch (evt) {
+$("#search-form").on("submit", async function handleSearch(evt) {
   evt.preventDefault();
 
   let query = $("#search-query").val();

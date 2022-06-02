@@ -3,15 +3,15 @@ html {
   max-width: 600px;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
-  color: #DDDDDD;
+  color: #dddddd;
 }
 
 button {
   background-color: #111318;
   text-align: left;
-  border: 2px solid  #DDDDDD;
+  border: 2px solid #dddddd;
   padding: 4px;
-  color: #DDDDDD;
+  color: #dddddd;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
   margin: 5px 0;
@@ -19,35 +19,35 @@ button {
 
 button:hover {
   color: #111318;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
 }
 
 button:active {
   color: #111318;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
 }
 
-input[type=text] {
+input[type="text"] {
   background-color: #111318;
-  border: 2px solid  #DDDDDD;
+  border: 2px solid #dddddd;
   padding: 4px;
-  color: #DDDDDD;
+  color: #dddddd;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
   margin: 5px 0;
   display: block;
 }
 
-input[type=text]:focus{
+input[type="text"]:focus {
   outline: none;
   color: #111318;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
 }
 
 .rating {
   --dir: right;
-  --fill: #D3B673;
-  --fillbg: #DDDDDD;
+  --fill: #d3b673;
+  --fillbg: #dddddd;
   --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
   --stars: 5;
   --starsize: 1.5rem;
@@ -66,12 +66,20 @@ input[type=text]:focus{
   --dir: left;
 }
 .rating::-moz-range-track {
-  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+  background: linear-gradient(
+    to var(--dir),
+    var(--fill) 0 var(--x),
+    var(--fillbg) 0 var(--x)
+  );
   block-size: 100%;
   mask: repeat left center/var(--starsize) var(--symbol);
 }
 .rating::-webkit-slider-runnable-track {
-  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+  background: linear-gradient(
+    to var(--dir),
+    var(--fill) 0 var(--x),
+    var(--fillbg) 0 var(--x)
+  );
   block-size: 100%;
   mask: repeat left center/var(--starsize) var(--symbol);
   -webkit-mask: repeat left center/var(--starsize) var(--symbol);
@@ -91,4 +99,3 @@ input[type=text]:focus{
   display: block;
   font-family: Arial, Helvetica, sans-serif;
 }
-

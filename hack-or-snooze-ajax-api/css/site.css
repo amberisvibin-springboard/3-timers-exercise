@@ -3,7 +3,7 @@
 body {
   font-family: Arimo, sans-serif;
   margin: 8px 7.5vw;
-  background-color: #04080F;
+  background-color: #04080f;
   overflow-wrap: break-word;
 }
 
@@ -31,7 +31,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 /* Site layout */
 
 /* This is the basic box that the main part of the page goes into */
@@ -46,14 +45,13 @@ a:hover {
   display: none;
 }
 
-
 /* Forms */
 
 form {
   display: flex;
   flex-direction: column;
   margin: 8px 18px 0;
-  color: #DDDDDD;
+  color: #dddddd;
 }
 
 form > * {
@@ -76,8 +74,8 @@ form input {
   padding: 8px;
   width: 300px;
   background-color: #111318;
-  border: 1px solid #DDDDDD;
-  color: #DDDDDD;
+  border: 1px solid #dddddd;
+  color: #dddddd;
 }
 
 form input:focus {
@@ -92,25 +90,24 @@ form > button {
   border-radius: 4px;
   padding: 8px;
   font-size: 0.85rem;
-  background-color: #F47D7B;
-  color: #DDDDDD;
+  background-color: #f47d7b;
+  color: #dddddd;
   cursor: pointer;
   transition: all 0.15s;
 }
 
 form > button:hover {
-  background-color: #86A3C1;
+  background-color: #86a3c1;
 }
 
 form > hr {
   margin: 0;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
 }
 
 .login-input label {
   width: 70px;
 }
-
 
 /* responsive queries for tightening things up for mobile. */
 
