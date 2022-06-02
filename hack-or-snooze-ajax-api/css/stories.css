@@ -35,6 +35,16 @@
   margin-left: 2em;
 }
 
+.story-button {
+  margin-left: 2em;
+  text-decoration: underline;
+  /* color: #F47D7B; */
+}
+
+.story-button:hover {
+  color: #F47D7B;
+}
+
 .story-user {
   display: block;
 }

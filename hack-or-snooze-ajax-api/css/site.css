@@ -4,6 +4,7 @@ body {
   font-family: Arimo, sans-serif;
   margin: 8px 7.5vw;
   background-color: #04080F;
+  overflow-wrap: break-word;
 }
 
 h1 {
