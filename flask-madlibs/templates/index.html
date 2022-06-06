@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Madlibs</h1>
+
+<form action="/story" method="GET">
+  {{form|safe}}
+
+  <button type="submit">Get story</button>
+</form>
+{% endblock %}
