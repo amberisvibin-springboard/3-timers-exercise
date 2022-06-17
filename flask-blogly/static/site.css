@@ -76,3 +76,11 @@ button:active.danger {
   color: #111318;
   background-color: #f47d7b;
 }
+
+img {
+  margin-right: 16px;
+}
+
+.inline {
+  display: inline;
+}

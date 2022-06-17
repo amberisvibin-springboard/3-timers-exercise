@@ -1,11 +1,20 @@
 {% extends 'base.html' %} {% block content %}
 
-<img src={{ image_url }} height="64px" style="float: left">
+<img
+  src="{{ user.image_url }}"
+  height="64px"
+  width="64px"
+  style="float: left"
+/>
 
-<h1>{{ first_name }} {{ last_name }}</h1>
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
 
-<button name="edit">Edit</button>
-<button name="delete" class="danger">Delete</button>
+<form action="/users/{{ user.id }}/edit" class="inline">
+  <button type="submit">Edit</button>
+</form>
+<form action="/users/{{ user.id }}/delete" class="inline" method="post">
+  <button type="submit" class="danger">Delete</button>
+</form>
 
 <!-- Library JS & our JS -->
 <script src="https://unpkg.com/jquery"></script>
