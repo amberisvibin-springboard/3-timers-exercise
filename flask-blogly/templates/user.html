@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<img src={{ image_url }} height="64px" style="float: left">
+
+<h1>{{ first_name }} {{ last_name }}</h1>
+
+<button name="edit">Edit</button>
+<button name="delete" class="danger">Delete</button>
+
+<!-- Library JS & our JS -->
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="static/site.js"></script>
+
+{% endblock %}
