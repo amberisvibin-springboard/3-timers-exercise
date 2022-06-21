@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+
+<div style="float: left">
+  <img src="{{ post.user.image_url }}" height="64px" width="64px" />
+</div>
+
+<div style="margin-left: 80px">
+  <h1>{{ post.title }}</h1>
+
+  <p>Posted at {{ post.creation_date.strftime("%H:%M on %m/%d/%y") }}</p>
+
+  <p>{{ post.content | safe }}</p>
+
+  <form action="/posts/{{ post.id }}/edit" class="inline">
+    <button type="submit">Edit</button>
+  </form>
+  <form action="/posts/{{ post.id }}/delete" class="inline" method="post">
+    <button type="submit" class="danger">Delete</button>
+  </form>
+</div>
+
+<!-- Library JS & our JS -->
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="static/site.js"></script>
+
+{% endblock %}

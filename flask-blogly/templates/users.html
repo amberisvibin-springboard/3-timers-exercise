@@ -2,10 +2,24 @@
 
 <h1>Users</h1>
 
-<ul>
+<form action="/users/new" class="inline">
+  <button type="submit">New user</button>
+</form>
+
+<ul class="userlist">
   {% for user in users %}
-  <li>
-    <a href="/users/{{ user.id }}">
+  <li class="user clearfix" style="width: fit-content">
+    <a
+      href="/users/{{ user.id }}"
+      style="text-decoration: none; display: block"
+    >
+      <img
+        src="{{ user.image_url }}"
+        width="32px"
+        height="32px"
+        style="float: left"
+      />
+
       {{ user.first_name }} {{ user.last_name }}
     </a>
   </li>

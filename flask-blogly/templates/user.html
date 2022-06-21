@@ -1,20 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
-<img
-  src="{{ user.image_url }}"
-  height="64px"
-  width="64px"
-  style="float: left"
-/>
+<div style="float: left">
+  <img src="{{ user.image_url }}" height="64px" width="64px" />
+</div>
 
-<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<div style="margin-left: 80px">
+  <h1>{{ user.first_name }} {{ user.last_name }}</h1>
 
-<form action="/users/{{ user.id }}/edit" class="inline">
-  <button type="submit">Edit</button>
-</form>
-<form action="/users/{{ user.id }}/delete" class="inline" method="post">
-  <button type="submit" class="danger">Delete</button>
-</form>
+  <form action="/users/{{ user.id }}/edit" class="inline">
+    <button type="submit">Edit</button>
+  </form>
+  <form action="/users/{{ user.id }}/delete" class="inline" method="post">
+    <button type="submit" class="danger">Delete</button>
+  </form>
+
+  <h2>Posts</h2>
+
+  <form action="/users/{{ user.id }}/posts/new" class="inline">
+    <button type="submit">New Post</button>
+  </form>
+
+  <ul>
+    {% for post in user.posts %}
+    <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
 
 <!-- Library JS & our JS -->
 <script src="https://unpkg.com/jquery"></script>

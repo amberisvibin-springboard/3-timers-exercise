@@ -79,8 +79,25 @@ button:active.danger {
 
 img {
   margin-right: 16px;
+  max-width: 100%;
 }
 
 .inline {
   display: inline;
+}
+
+.userlist {
+  list-style: none;
+}
+
+.user {
+  padding: 8px 0 8px 0;
+  line-height: 32px;
+  height: 32px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
