@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{ tag.name }}</h1>
+
+<form action="/tags/{{ tag.id }}/edit" class="inline">
+  <button type="submit">Edit</button>
+</form>
+<form action="/tags/{{ tag.id }}/delete" class="inline" method="post">
+  <button type="submit" class="danger">Delete</button>
+</form>
+
+<h2>Posts</h2>
+
+<ul>
+  {% for post in tag.posts %}
+  <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<!-- Library JS & our JS -->
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="static/site.js"></script>
+
+{% endblock %}

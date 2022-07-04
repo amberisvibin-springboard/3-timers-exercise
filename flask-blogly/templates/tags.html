@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Tags</h1>
+
+<form action="/tags/new" class="inline">
+  <button type="submit">New Tag</button>
+</form>
+
+<ul>
+  {% for tag in tags %}
+  <li><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<!-- Library JS & our JS -->
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="static/site.js"></script>
+
+{% endblock %}

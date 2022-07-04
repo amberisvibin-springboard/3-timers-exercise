@@ -11,10 +11,20 @@
   <input type="text" name="title" id="title" maxlength="50" />
   <label for="content">Content</label>
   <input type="text" name="content" id="content" maxlength="5000" />
+  {% for tag in tags %}
+  <input
+    type="checkbox"
+    name="tags"
+    value="{{ tag.id }}"
+    id="{{ tag.name }}"
+    class="inline"
+  />
+  <label for="{{ tag.name }}">{{ tag.name }}</label></br>
+  {% endfor %}
   <button type="submit">Submit</button>
 </form>
 
-<form action="/posts" style="display: inline">
+<form action="/users/{{ user.id }}" style="display: inline">
   <button type="submit" class="danger">Cancel</button>
 </form>
 

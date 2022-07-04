@@ -101,3 +101,20 @@ img {
   clear: both;
   display: table;
 }
+
+button.tag {
+  background-color: #dddddd;
+  border: 2px solid #dddddd;
+  color: #111318;
+  font-size: small;
+}
+
+button:hover.tag {
+  color: #dddddd;
+  background-color: #111318;
+}
+
+button:active.tag {
+  color: #dddddd;
+  background-color: #111318;
+}

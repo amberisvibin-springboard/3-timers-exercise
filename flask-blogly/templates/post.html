@@ -7,6 +7,12 @@
 <div style="margin-left: 80px">
   <h1>{{ post.title }}</h1>
 
+  {% for tag in post.tags %}
+  <form action="/tags/{{ tag.id }}" class="inline">
+    <button type="submit" class="inline tag">{{ tag.name }}</button>
+  </form>
+  {% endfor %}
+
   <p>Posted at {{ post.creation_date.strftime("%H:%M on %m/%d/%y") }}</p>
 
   <p>{{ post.content | safe }}</p>
