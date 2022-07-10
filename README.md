@@ -4,6 +4,8 @@ where i keep my springboard exercises.
 
 ## projects
 
+these are the big projects that dont require a flask server and can be run just through github.
+
 - [Memory Game](/memory-game/index.html)
 - [Meme Generator](/meme-generator/index.html)
 - [Todos](/todos/index.html)
