@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Pets</h1>
+
+{% for msg in get_flashed_messages() %}
+<p class="flash">{{ msg }}</p>
+{% endfor %}
+
+<form action="/add" class="inline">
+  <button type="submit">New pet</button>
+</form>
+
+<ul class="petlist clearfix" class="">
+  {% for pet in pets %}
+  <li class="pet clearfix" style="display: inline">
+    <a href="/pets/{{ pet.id }}">
+      {% if pet.photo_url %}
+      <img src="{{ pet.photo_url }}" width="256px" style="float: left" />
+      {% else %}
+      <img
+        src="/static/default.webp"
+        width="256px"
+        height="256px"
+        style="float: left"
+      />
+      {% endif %}
+
+      <p>
+        {{ pet.name }} {% if pet.available %} <b>is available!</b> {% endif %}
+      </p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

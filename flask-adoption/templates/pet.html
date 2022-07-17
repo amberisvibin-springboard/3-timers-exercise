@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %} {% for msg in
+get_flashed_messages() %}
+<p class="flash">{{ msg }}</p>
+{% endfor %}
+
+<div style="float: left">
+  {% if pet.photo_url %}
+  <img src="{{ pet.photo_url }}" width="256px" style="float: left" />
+  {% else %}
+  <img
+    src="/static/default.webp"
+    width="256px"
+    height="256px"
+    style="float: left"
+  />
+  {% endif %}
+</div>
+
+<div style="margin-left: 80px">
+  <h1>{{ pet.name }}</h1>
+
+  {% if pet.age %}
+  <p>{{ pet.age }} years old.</p>
+  {% endif %}
+
+  <p>{{ pet.species }}</p>
+
+  {% if pet.notes %}
+  <p>{{ pet.notes }}</p>
+  {% endif %}
+
+  <form action="/pets/{{ pet.id }}/edit" class="inline">
+    <button type="submit">Edit</button>
+  </form>
+</div>
+
+<!-- Library JS & our JS -->
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="static/site.js"></script>
+
+{% endblock %}
