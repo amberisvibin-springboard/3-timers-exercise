@@ -33,14 +33,14 @@ def users():
     return render_template("users.html", users=user_list)
 
 
-@ app.route("/users/<int:user_id>")
+@app.route("/users/<int:user_id>")
 def show_user(user_id):
     """Show user"""
     user = User.query.get_or_404(user_id)
     return render_template("user.html", user=user)
 
 
-@ app.route("/users/new")
+@app.route("/users/new")
 def new_user():
     """Show new user form"""
     return render_template("new_user.html")
