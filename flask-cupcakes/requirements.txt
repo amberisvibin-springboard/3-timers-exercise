@@ -1,0 +1,5 @@
+flask==1.1.1
+flask-sqlalchemy
+ipython
+psycopg2-binary
+sqlalchemy
