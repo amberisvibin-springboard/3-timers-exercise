@@ -65,7 +65,7 @@ def list_single_cupcake(cupcake_id):
 
 @app.route("/api/cupcakes", methods=["POST"])
 def create_cupcake():
-    """Create cupcake from form data & return it.
+    """Create cupcake from data & return it.
 
     Returns JSON {'cupcake': {id, flavor, size, rating, image}}
     """
@@ -85,3 +85,42 @@ def create_cupcake():
 
     # Return w/status code 201 --- return tuple (json, status)
     return ( jsonify(cupcake=serialized), 201 )
+
+@app.route("/api/cupcakes/<cupcake_id>", methods=["PATCH"])
+def patch_single_cupcake(cupcake_id):
+    """Patch cupcake from data & return it.
+    
+    Return JSON {'cupcake': {id, flavor, size, rating, image}}"""
+
+    cupcake = Cupcake.query.get(cupcake_id)
+
+    if (not cupcake):
+        raise NotFound
+
+    cupcake.flavor = request.json["flavor"]
+    cupcake.size = request.json["size"]
+    cupcake.rating = request.json["rating"]
+    cupcake.image = request.json["image"]
+    db.session.commit()
+
+    serialized = serialize_cupcake(cupcake)
+
+    return jsonify(cupcake=serialized)
+
+@app.route("/api/cupcakes/<cupcake_id>", methods=["DELETE"])
+def delete_single_cupcake(cupcake_id):
+    """Delete cupcake from id and return 200.
+    
+    Return JSON {message: 'Deleted'}"""
+
+    cupcake = Cupcake.query.get(cupcake_id)
+
+    if (not cupcake):
+        raise NotFound
+
+    db.session.delete(cupcake)
+
+    resp = jsonify(message='Deleted')
+    resp.status_code = 200
+
+    return resp
