@@ -1,6 +1,6 @@
 """Flask app for Cupcakes"""
 
-from flask import Flask, jsonify, json, abort, request
+from flask import Flask, jsonify, json, abort, request, render_template
 from models import db, connect_db, Cupcake
 from werkzeug.exceptions import HTTPException, NotFound
 
@@ -10,9 +10,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = "transgenderism"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 connect_db(app)
 db.create_all()
+
+@app.route("/")
+def index():
+    """Show homepage"""
+    return render_template("index.html")
 
 # code from SO to make errors return as JSON
 @app.errorhandler(HTTPException)
