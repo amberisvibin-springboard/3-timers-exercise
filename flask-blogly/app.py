@@ -1,7 +1,5 @@
 """Blogly application."""
 
-from curses.ascii import US
-from xxlimited import Str
 from flask import Flask, render_template, request, make_response, redirect, flash, session, jsonify
 from werkzeug import exceptions
 from flask_debugtoolbar import DebugToolbarExtension
