@@ -60,5 +60,3 @@
 // }
 
 // onLoad()
-
-console.log("gay sex")

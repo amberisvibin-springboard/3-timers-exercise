@@ -11,16 +11,9 @@ class AddUserForm(FlaskForm):
     email = StringField("Email", validators=[InputRequired(), Email(), Length(max=50)])
     first_name = StringField("First Name", validators=[InputRequired(), Length(max=30)])
     last_name = StringField("Last Name", validators=[InputRequired(), Length(max=30)])
-    
 
+class LoginUserForm(FlaskForm):
+    """Form for editing users."""
 
-# class EditPetForm(FlaskForm):
-#     """Form for adding pets."""
-
-#     name = StringField("Pet Name", validators=[InputRequired()])
-#     age = IntegerField("Age in years", validators=[InputRequired()])
-#     photo_url = StringField("Image URL", validators=[Optional(), URL()])
-#     notes = TextAreaField("Notes", validators=[Optional()])
-#     species = SelectField("Species", choices=[
-#                           ('Cat'), ('Dog'), ('Porcupine')],
-#                           validators=[InputRequired()])
+    username = StringField("Username", validators=[InputRequired(), Length(max=20)])
+    password = PasswordField("Password", validators=[InputRequired(), Length(max=20)])

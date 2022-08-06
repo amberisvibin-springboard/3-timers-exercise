@@ -1,9 +1,9 @@
 """Flask app for Feedback"""
 
-from flask import Flask, jsonify, json, abort, request, render_template, redirect, flash
+from flask import Flask, jsonify, json, abort, request, render_template, redirect, flash, session
 from models import connect_db, db, User
 from werkzeug.exceptions import HTTPException, NotFound
-from forms import AddUserForm
+from forms import AddUserForm, LoginUserForm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///feedback'
@@ -20,11 +20,15 @@ db.create_all()
 @app.route("/")
 def index():
     """redir to /register"""
-    return redirect("/register")
+    return redirect("/login")
 
 @app.route("/register", methods=["GET", "POST"])
 def add_user():
     """User add form; handle adding."""
+
+    if "username" in session:
+        flash("Logout first!")
+        return redirect("/secret")
 
     form = AddUserForm()
 
@@ -34,54 +38,70 @@ def add_user():
         email = form.email.data
         first_name = form.first_name.data
         last_name = form.last_name.data
-        
-        new_user = User(
-            username = username,
-            password = password,
-            email = email,
-            first_name = first_name,
-            last_name = last_name
-        )
 
-        db.session.add(new_user)
-        try:
-            db.session.commit()
-        except:
+        if User.register(username, password, email, first_name, last_name): 
+            return redirect("/secret")
+
+        else:
             flash("Email already exists")
             return render_template(
-            "register.html", form=form)
-        else:
-            return redirect("/secret")
+                "register.html", form=form)
+        
     else:
         return render_template(
             "register.html", form=form)
 
+@app.route("/login", methods=["GET", "POST"])
+def login_user():
+    """User login form; handle login."""
+
+    if "username" in session:
+        flash("Logout first!")
+        return redirect("/secret")
+
+    form = LoginUserForm()
+
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        result = User.login(username, password)
+        if result == "Not found":
+            flash("User does not exist")
+            return render_template(
+                "login.html", form=form)
+        elif result == "Bad password":
+            flash("Incorrect password")
+            return render_template(
+                "login.html", form=form)
+        elif result == "Success":
+            session["username"] = username  # keep logged in
+            return redirect("/secret")
+    else:
+        return render_template(
+            "login.html", form=form)
+
 @app.route("/secret")
 def secret():
     """Show secret page"""
-    return render_template("secret.html")
+    if "username" not in session:
+        flash("You must be logged in to view!")
+        return redirect("/login")
 
-# @app.route("/pets/<int:pet_id>/edit", methods=["GET", "POST"])
-# def edit_pet(pet_id):
-#     """Pet edit form; handle editing."""
+    else:
+        return render_template("secret.html")
 
-#     pet = Pet.query.get_or_404(pet_id)
+@app.route("/logout")
+def logout():
+    """Logout user"""
+    
+    session.pop("username")
 
-#     form = EditPetForm(name=pet.name, age=pet.age, species=pet.species,
-#                        photo_url=pet.photo_url, notes=pet.name)
+    return redirect("/")
 
-#     if form.validate_on_submit():
-#         pet.name = form.name.data
-#         pet.age = form.age.data
-#         pet.species = form.species.data
-#         pet.photo_url = form.photo_url.data
-#         pet.notes = form.notes.data
-#         db.session.commit()
 
-#         flash(
-#             f"Edited {pet.name} at {pet.age} yrs old and of species {pet.species}.")
-#         return redirect(f"/pets/{pet_id}")
-
-#     else:
-#         return render_template(
-#             "edit_pet_form.html", form=form)
+def auth_user(user, password) -> bool:
+    if user.password == password:
+        return True
+    else:
+        return False
