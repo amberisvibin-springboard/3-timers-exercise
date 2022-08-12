@@ -28,7 +28,7 @@ def add_user():
 
     if "username" in session:
         flash("Logout first!")
-        return redirect("/secret")
+        return redirect(f"/users/{session['username']}")
 
     form = AddUserForm()
 
@@ -40,7 +40,8 @@ def add_user():
         last_name = form.last_name.data
 
         if User.register(username, password, email, first_name, last_name): 
-            return redirect("/secret")
+            session["username"] = username  # keep logged in
+            return redirect(f"/users/{username}")
 
         else:
             flash("Email already exists")
@@ -57,7 +58,7 @@ def login_user():
 
     if "username" in session:
         flash("Logout first!")
-        return redirect("/secret")
+        return redirect(f"/users/{session['username']}")
 
     form = LoginUserForm()
 
@@ -76,20 +77,21 @@ def login_user():
                 "login.html", form=form)
         elif result == "Success":
             session["username"] = username  # keep logged in
-            return redirect("/secret")
+            return redirect(f"/users/{username}")
     else:
         return render_template(
             "login.html", form=form)
 
-@app.route("/secret")
-def secret():
-    """Show secret page"""
+@app.route("/users/<string:username>")
+def show_user(username):
+    """Show user page"""
     if "username" not in session:
         flash("You must be logged in to view!")
         return redirect("/login")
 
     else:
-        return render_template("secret.html")
+        user = User.query.get_or_404(username)
+        return render_template("user.html", user=user)
 
 @app.route("/logout")
 def logout():
