@@ -23,6 +23,7 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False, unique=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
+    feedback = db.relationship('Feedback', cascade="all, delete-orphan")
 
     def __repr__(self):
         """Show info about user."""
@@ -64,3 +65,22 @@ class User(db.Model):
                 return "Success"
             else:
                 return "Bad password"
+
+class Feedback(db.Model):
+    """Feedback"""
+
+    __tablename__ = "feedback"
+
+    id = db.Columm = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.String(1000), nullable=False)
+    username = db.Column(
+        db.String(20),
+        db.ForeignKey('users.username'))
+    user = db.relationship('User')
+    
+    def __repr__(self):
+        """Show info about feedback."""
+
+        f = self
+        return f"<Feedback {f.username}>"

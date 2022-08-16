@@ -1,9 +1,8 @@
 """Flask app for Feedback"""
 
-from flask import Flask, jsonify, json, abort, request, render_template, redirect, flash, session
-from models import connect_db, db, User
-from werkzeug.exceptions import HTTPException, NotFound
-from forms import AddUserForm, LoginUserForm
+from flask import Flask, render_template, redirect, flash, session
+from models import Feedback, connect_db, db, User
+from forms import AddUserForm, LoginUserForm, AddFeedbackForm, UpdateFeedbackForm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///feedback'
@@ -39,7 +38,7 @@ def add_user():
         first_name = form.first_name.data
         last_name = form.last_name.data
 
-        if User.register(username, password, email, first_name, last_name): 
+        if User.register(username, password, email, first_name, last_name): # true when success
             session["username"] = username  # keep logged in
             return redirect(f"/users/{username}")
 
@@ -66,7 +65,7 @@ def login_user():
         username = form.username.data
         password = form.password.data
 
-        result = User.login(username, password)
+        result = User.login(username, password) # this should really be a custom error
         if result == "Not found":
             flash("User does not exist")
             return render_template(
@@ -85,6 +84,7 @@ def login_user():
 @app.route("/users/<string:username>")
 def show_user(username):
     """Show user page"""
+
     if "username" not in session:
         flash("You must be logged in to view!")
         return redirect("/login")
@@ -101,9 +101,84 @@ def logout():
 
     return redirect("/")
 
+@app.route("/users/<string:username>/delete", methods=["POST"])
+def delete_user(username):
+    """Delete user and redirect to users"""
 
-def auth_user(user, password) -> bool:
-    if user.password == password:
-        return True
+    if "username" not in session:
+        flash("You must be logged in to view!")
+        return redirect("/login")
+
+    session.pop("username")
+    user = User.query.get_or_404(username)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect("/login")
+
+@app.route("/users/<string:username>/add", methods=["GET", "POST"])
+def add_feedback(username):
+    """Feedback entry form; handle feedback."""
+
+    if "username" not in session or session["username"] != username:
+        flash("You must be logged in to view!")
+        return redirect(f"/users/{username}")
+
+    form = AddFeedbackForm()
+
+    if form.validate_on_submit():
+        title = form.title.data
+        content = form.content.data
+
+        feedback = Feedback(
+            title = title,
+            content = content,
+            username = username
+        )
+
+        db.session.add(feedback)
+        db.session.commit()
+        return redirect(f"/users/{username}")
+
+       
     else:
-        return False
+        return render_template(
+            "add_feedback.html", form=form)
+
+@app.route("/feedback/<int:fb_id>/update", methods=["GET", "POST"])
+def update_feedback(fb_id):
+    """Feedback update form; handle feedback."""
+
+    feedback = Feedback.query.get_or_404(fb_id)
+
+    if "username" not in session or session["username"] != feedback.username:
+        flash("You must be logged in to view!")
+        return redirect(f"/users/{session['username']}")
+
+    form = UpdateFeedbackForm(title=feedback.title, content=feedback.content)
+
+    if form.validate_on_submit():
+        feedback.title = form.title.data
+        feedback.content = form.content.data
+
+        db.session.commit()
+        return redirect(f"/users/{session['username']}")
+
+       
+    else:
+        return render_template(
+            "update_feedback.html", form=form)
+
+@app.route("/feedback/<int:fb_id>/delete", methods=["GET", "POST"])
+def delete_feedback(fb_id):
+    """Feedback delete"""
+
+    feedback = Feedback.query.get_or_404(fb_id)
+
+    if "username" not in session or session["username"] != feedback.username:
+        flash("You must be logged in to view!")
+        return redirect(f"/users/{session['username']}")
+    
+    db.session.delete(feedback)
+    db.session.commit()
+
+    return redirect(f"/users/{session['username']}")

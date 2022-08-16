@@ -20,4 +20,16 @@ Feedback - {{ user.username }}
   <button type="submit">Logout</button>
 </form>
 
+<form action="/users/{{ user.username }}/delete" method="post">
+  <button type="submit" class="danger">Delete</button>
+</form>
+
+<h2>Feedback:</h2>
+
+<ul>
+  {% for feedback in user.feedback %}
+  <li><a href="/feedback/{{ feedback.id }}/update">{{ feedback.title }}</a></li>
+  {% endfor %}
+</ul>
+
 {% endblock %}

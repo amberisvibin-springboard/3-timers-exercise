@@ -46,10 +46,8 @@ input:focus {
 }
 
 a:link {
-  background-color: #111318;
   text-align: left;
-  border: 2px solid #dddddd;
-  padding: 4px;
+  
   color: #dddddd;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
@@ -62,15 +60,11 @@ a:visited {
 }
 
 a:hover {
-  color: #111318;
-  background-color: #dddddd;
-  border: 2px solid #dddddd;
+  color: #dddddd;
 }
 
 a:active {
-  color: #111318;
-  background-color: #dddddd;
-  border: 2px solid #dddddd;
+  color: #dddddd;
 }
 
 select {
@@ -88,4 +82,20 @@ select:focus {
   outline: none;
   color: #111318;
   background-color: #dddddd;
+}
+
+button.danger {
+  background-color: #111318;
+  border: 2px solid #f47d7b;
+  color: #f47d7b;
+}
+
+button:hover.danger {
+  color: #111318;
+  background-color: #f47d7b;
+}
+
+button:active.danger {
+  color: #111318;
+  background-color: #f47d7b;
 }
