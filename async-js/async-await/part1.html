@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="style.css" rel="stylesheet">
+    <title>Async/Await</title>
+    <style>
+      pre {
+          height: 120px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Async/Await Part 1</h1>
+
+    <section>
+        <h2>Part 1</h2>
+
+        <p>Make a request to the Numbers API (http://numbersapi.com/) to get a fact about your favorite number. (Make sure you get back JSON by including the json query key, specific to this API.</p>
+
+        <pre id="p1" class="prettyprint"></pre>
+    </section>
+
+    <section>
+        <h2>Part 2</h2>
+
+        <p>Figure out how to get data on multiple numbers in a single request. Make that request and when you get the data back, put all of the number facts on the page.</p>
+
+        <ul id="p2"></ul>
+    </section>
+
+    <section>
+        <h2>Part 3</h2>
+
+        <p>Use the API to get 4 facts on your favorite number. Once you have them all, put them on the page. It’s okay if some of the facts are repeats.</p>
+        <p>(Note: You’ll need to make multiple requests for this.)</p>
+
+        <ul id="p3"></ul>
+    </section>
+
+    <!-- Library JS & our JS -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+
+    <script src="part1.js"></script>
+
+</body>
