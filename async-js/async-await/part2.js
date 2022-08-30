@@ -36,30 +36,6 @@ let base_url = "https://deckofcardsapi.com/api"
   
 // Build an HTML page that lets you draw cards from a deck. When the page loads, go to the Deck of Cards API to create a new deck, and show a button on the page that will let you draw a card. Every time you click the button, display a new card, until there are no cards left in the deck.
 {
-    // let deck_id;
-    // let shuffle_deck_promise = axios.get(`${base_url}/deck/new/shuffle/?deck_count=1`);
-
-    // shuffle_deck_promise
-    // .then(data => {
-    //     deck_id = data.data.deck_id;
-    //     $("#3").append(document.createElement("button"))
-    //     $("button").text("Draw card");
-    //     $("button").click(draw_card)
-    // })
-    // .catch(err => console.log(err));
-
-    // function draw_card() {
-    //     let draw_card_promise = axios.get(`${base_url}/deck/${deck_id}/draw`);
-
-    //     draw_card_promise
-    //     .then(data => {
-    //         if (data.data.cards[0]) {
-    //             $("#card").text(`${data.data.cards[0].value} of ${data.data.cards[0].suit}`)
-    //         }
-    //     })
-    //     .catch(err => console.log(err));
-    // }
-
     let deck_id;
     async function shuffle() {
         let shuffle_deck = await $.getJSON(`${base_url}/deck/new/shuffle/?deck_count=1`);
