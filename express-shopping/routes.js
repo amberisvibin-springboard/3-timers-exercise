@@ -42,9 +42,9 @@ router.patch("/:name", function(req, res) {
   var result = db.find(item => {
     return item.name === req.params.name
   })
-  db[result].name = req.params.name
-  db[result].price = req.params.price
   if (result) {
+    db[result].name = req.params.name
+    db[result].price = req.params.price
     return res.json({
       "status": "success",
       "data": {"updated": result}
@@ -58,13 +58,24 @@ router.patch("/:name", function(req, res) {
   
 });
 
-/** DELETE /users/[id]: delete user, return status */
-
-// router.delete("/:id", function(req, res) {
-//   const idx = users.findIndex(u => u.id === +req.params.id);
-//   users.splice(idx, 1);
-//   return res.json({ message: "Deleted" });
-// });
-
+//DELEYE /items:name: delete item by name
+router.delete("/:name", function(req, res) {
+  var result = db.find(item => {
+    return item.name === req.params.name
+  })
+  if (result) {
+    db[result].remove()
+    return res.json({
+      "status": "success",
+      "data": {"updated": result}
+  });
+  } else {
+    return res.json({
+      "status": "fail",
+      "data": {"name": `${req.params.name} not found on server.`}
+  });
+  }
+  
+});
 
 module.exports = router;
