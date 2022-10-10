@@ -6,8 +6,21 @@ const express = require("express");
 const app = express();
 const ExpressError = require("./expressError")
 
+const bodyParser = require('body-parser')
+
+const companiesRoutes = require("./routes/companies")
+const invoicesRoutes = require("./routes/invoices")
+
 app.use(express.json());
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+app.use("/companies", companiesRoutes); 
+app.use("/invoices", invoicesRoutes); 
 
 /** 404 handler */
 
@@ -26,6 +39,5 @@ app.use((err, req, res, next) => {
     message: err.message
   });
 });
-
 
 module.exports = app;
