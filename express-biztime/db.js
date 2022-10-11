@@ -4,8 +4,7 @@ const { Client } = require("pg");
 
 let DB_URI;
 
-//console.log(process.env.PGUSER || process.env.USER);
-
+//use test database if testing
 if (process.env.NODE_ENV === "test") {
   DB_URI = "postgresql:///biztime_test";
 } else {
@@ -13,7 +12,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 let db = new Client({
-  connectionString: DB_URI
+  connectionString: DB_URI,
 });
 
 db.connect();
