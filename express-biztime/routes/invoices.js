@@ -63,14 +63,19 @@ router.patch("/:id", async function (req, res, next) {
     );
     //console.log(result);
 
-    if (result.rowCount == 0) {
+    if (result.rows.length == 0) {
       const err = new ExpressError("Not Found", 404);
       return next(err);
     }
 
     return res.json(result.rows[0]);
   } catch (err) {
-    return next(err);
+    if (err instanceof SyntaxError) {
+      const err = new ExpressError("Not Found", 404);
+      return next(err);
+    } else {
+      return next(err);
+    }
   }
 });
 

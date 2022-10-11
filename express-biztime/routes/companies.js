@@ -22,7 +22,7 @@ router.get("/:code", async function (req, res, next) {
     );
 
     //? this same bit of code is repeated several times, should it be a seperate function?
-    if (results.rowsCount == 0) {
+    if (results.rows.length == 0) {
       const err = new ExpressError("Not Found", 404);
       return next(err);
     }
@@ -61,16 +61,20 @@ router.patch("/:code", async function (req, res, next) {
              RETURNING code, name, description`,
       [name, description, req.params.code]
     );
-    //console.log(result);
 
-    if (result.rowCount == 0) {
+    if (result.rows.length == 0) {
       const err = new ExpressError("Not Found", 404);
       return next(err);
     }
 
     return res.json(result.rows[0]);
   } catch (err) {
-    return next(err);
+    if (err instanceof SyntaxError) {
+      const err = new ExpressError("Not Found", 404);
+      return next(err);
+    } else {
+      return next(err);
+    }
   }
 });
 
@@ -80,7 +84,6 @@ router.delete("/:code", async function (req, res, next) {
     const result = await db.query("DELETE FROM companies WHERE code = $1", [
       req.params.code,
     ]);
-
     if (result.rowCount == 0) {
       const err = new ExpressError("Not Found", 404);
       return next(err);
