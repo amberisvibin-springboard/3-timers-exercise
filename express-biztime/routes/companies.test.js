@@ -59,9 +59,7 @@ describe("POST /companies", function () {
   test("Creates a new company", async function () {
     const response = await request(app)
       .post(`/companies`)
-      .send(
-        'company={"code": "ibm", "name": "IBM", "description": "Big blue."}'
-      );
+      .send('company={"name": "IBM", "description": "Big blue."}');
     //expect(response.statusCode).toEqual(201);
     expect(response.body).toEqual({
       code: "ibm",

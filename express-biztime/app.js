@@ -12,6 +12,8 @@ const bodyParser = require("body-parser");
 const companiesRoutes = require("./routes/companies");
 const invoicesRoutes = require("./routes/invoices");
 
+const slugify = require("slugify");
+
 app.use(express.json());
 
 //parse application/x-www-form-urlencoded
