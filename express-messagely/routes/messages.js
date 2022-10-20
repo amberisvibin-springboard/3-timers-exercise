@@ -11,6 +11,16 @@
  *
  **/
 
+const Message = require("../models/message");
+
+router.get("/:id", ensureCorrectUser, async function (req, res, next) {
+  try {
+    let message = Message.get(req.params.id);
+    return res.json(message);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 /** POST / - post message.
  *
@@ -19,6 +29,15 @@
  *
  **/
 
+router.post("/", ensureCorrectUser, async function (req, res, next) {
+  try {
+    const { to_username, body } = req.body;
+    let message = Message.create(req.params.username, to_username, body);
+    return res.json(message);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 /** POST/:id/read - mark message as read:
  *
@@ -28,3 +47,11 @@
  *
  **/
 
+router.post("/:id/read", ensureCorrectUser, async function (req, res, next) {
+  try {
+    let message = Message.markRead(req.params.id);
+    return res.json(message);
+  } catch (err) {
+    return next(err);
+  }
+});
