@@ -57,6 +57,49 @@ class Company {
     return companiesRes.rows;
   }
 
+  /** Find filtered companies.
+   *
+   * Returns [{ handle, name, description, numEmployees, logoUrl }, ...]
+   * */
+
+  static async findFiltered(name, minEmployees, maxEmployees) {
+    //TODO: there has got to be a better way to do this
+    let whereStatement = "";
+    if (name != null) {
+      if (whereStatement == "") {
+        whereStatement = (`WHERE name=$1 `, [name]);
+      } else {
+        whereStatement += (`AND name=$1 `, [name]);
+      }
+    }
+    if (minEmployees != null) {
+      if (whereStatement == "") {
+        whereStatement = (`WHERE minEmployees=$1 `, [minEmployees]);
+      } else {
+        whereStatement += (`AND minEmployees=$1 `, [minEmployees]);
+      }
+    }
+    if (maxEmployees != null) {
+      if (whereStatement == "") {
+        whereStatement = (`WHERE maxEmployees=$1 `, [maxEmployees]);
+      } else {
+        whereStatement += (`AND maxEmployees=$1 `, [maxEmployees]);
+      }
+    }
+    const companiesRes = await db.query(
+      `SELECT handle,
+                  name,
+                  description,
+                  num_employees AS "numEmployees",
+                  logo_url AS "logoUrl"
+           FROM companies
+           $1
+           ORDER BY name`,
+      [whereStatement]
+    );
+    return companiesRes.rows;
+  }
+
   /** Given a company handle, return data about company.
    *
    * Returns { handle, name, description, numEmployees, logoUrl, jobs }
