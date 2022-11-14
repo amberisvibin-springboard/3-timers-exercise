@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'pokemonrs';
+  src: url('../public/pkmnrs.ttf') format('truetype');
+  font-smooth: never;
+    -webkit-font-smoothing: none;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+body {
+  margin: 0;
+  font-family: pokemonrs;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+html {
+  background-color: #EEF0F2;
+  color: #212227;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.pokecard {
+  background-color: #939D9F;
+  color: #EEF0F2;
+  margin: 12px;
+  padding: 12px;
+  width: 150px;
+  display: inline-block;
+  /* border-radius: 8px; */
+  font-size: 16px;
+  /* pixelated rounded corners */
+  clip-path: polygon(0px 20px,
+        4px 20px,
+        4px 12px,
+        8px 12px,
+        8px 8px,
+        12px 8px,
+        12px 4px,
+        16px 4px,
+        20px 4px,
+        20px 0px,
+        calc(100% - 20px) 0px,
+        calc(100% - 20px) 4px,
+        calc(100% - 12px) 4px,
+        calc(100% - 12px) 8px,
+        calc(100% - 8px) 8px,
+        calc(100% - 8px) 12px,
+        calc(100% - 4px) 12px,
+        calc(100% - 4px) 16px,
+        calc(100% - 4px) 20px,
+        100% 20px,
+        100% calc(100% - 20px),
+        calc(100% - 4px) calc(100% - 20px),
+        calc(100% - 4px) calc(100% - 12px),
+        calc(100% - 8px) calc(100% - 12px),
+        calc(100% - 8px) calc(100% - 8px),
+        calc(100% - 12px) calc(100% - 8px),
+        calc(100% - 12px) calc(100% - 4px),
+        calc(100% - 16px) calc(100% - 4px),
+        calc(100% - 20px) calc(100% - 4px),
+        calc(100% - 20px) 100%,
+        20px 100%,
+        20px calc(100% - 4px),
+        12px calc(100% - 4px),
+        12px calc(100% - 8px),
+        8px calc(100% - 8px),
+        8px calc(100% - 12px),
+        4px calc(100% - 12px),
+        4px calc(100% - 16px),
+        4px calc(100% - 20px),
+        0px calc(100% - 20px));
+}
+
+h3 {
+  color: #212227;
+  font-size: 24px;
+}
