@@ -1,0 +1,7 @@
+.Box {
+    display: inline-table;
+    margin: 0;
+    padding: 0;
+    line-height: 0px;
+    float: left;
+}
