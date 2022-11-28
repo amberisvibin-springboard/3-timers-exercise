@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+html {
+  background-color: #462255;
+  color: #FFA69E;
+}
+
+ /* unvisited link */
+ a:link {
+   color: #FFA69E;
+ }
+
+ /* visited link */
+ a:visited {
+   color: #FFA69E;
+ }
+
+ /* mouse over link */
+ a:hover {
+   color: white;
+ }
+
+ /* selected link */
+ a:active {
+   color: white;
+ }
+
+ /* .mono {
+  font-family: 'Courier New', Courier, monospace;
+ } */
